@@ -1,0 +1,24 @@
+<project name="jackrabbit-component-info">
+   <component id="jackrabbit"
+   	      licenseType="apache-2.0"
+	      version="1.4"
+	      projectHome="http://jackrabbit.apache.org/"
+              description="open source implementation of the Content Repository for Java technology API (JCR)">
+               
+      <artifact id="jackrabbit-api-1.4.jar"/>
+      <artifact id="jackrabbit-jcr-commons-1.4.jar"/>
+      <artifact id="jackrabbit-spi-1.4.jar"/>
+      <artifact id="jackrabbit-spi-commons-1.4.jar"/>
+      <artifact id="jackrabbit-text-extractors-1.4.jar"/>
+      <artifact id="jackrabbit-core-1.4.5.jar"/>
+      
+      <export>
+          <include input="jackrabbit-api-1.4.jar"/>	           
+          <include input="jackrabbit-jcr-commons-1.4.jar"/>              
+	  <include input="jackrabbit-spi-1.4.jar"/>              
+          <include input="jackrabbit-spi-commons-1.4.jar"/>              
+          <include input="jackrabbit-text-extractors-1.4.jar"/>              
+          <include input="jackrabbit-core-1.4.5.jar"/>              
+      </export>      
+   </component>
+</project>

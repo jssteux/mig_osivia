@@ -1,0 +1,28 @@
+<project name="jboss-portal-test-component-info">
+   <component id="jboss-portal/modules/test"
+              licenseType="lgpl"
+              version="1.0.5"
+              projectHome="http://labs.jboss.com/jbossportal"
+              description="JBoss Portal test module library">
+      <artifact id="portal-test-lib.jar"/>
+      <artifact id="portal-test-jboss-lib.jar"/>
+      <artifact id="portal-test-generic-lib.jar"/>
+      <artifact id="portal-test-agent.sar"/>
+      <artifact id="datasources.xml"/>
+      <artifact id="directories-extrolemodule.xml"/>
+      <artifact id="directories-extusermodule.xml"/>
+      <artifact id="directories-identity.xml"/>
+      <artifact id="directories-simplerolemodule.xml"/>
+      <artifact id="directories-simpleusermodule.xml"/>
+      <artifact id="directories-staticgroupmembership.xml"/>
+      <artifact id="directories-staticrolemembership.xml"/>
+      <artifact id="directories-userprofilemodule.xml"/>
+      <artifact id="directories.xml"/>
+      <artifact id="hibernates.xml"/>
+      <artifact id="opends.zip"/>
+      <export>
+         <include input="portal-test-lib.jar"/>
+      </export>
+   </component>
+
+</project>

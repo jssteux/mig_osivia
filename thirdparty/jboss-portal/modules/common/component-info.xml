@@ -1,0 +1,17 @@
+<project name="jboss-portal-common-component-info">
+   <component id="jboss-portal/modules/common"
+              licenseType="lgpl"
+              version="1.2.5"
+              projectHome="http://labs.jboss.com/jbossportal"
+              description="JBoss Portal common module libraries">
+      <artifact id="portal-common-lib.jar"/>
+      <artifact id="portal-common-portal-lib.jar"/>
+      <artifact id="portal-common-mc-lib.jar"/>
+      <export>
+         <include input="portal-common-lib.jar"/>
+         <include input="portal-common-portal-lib.jar"/>
+         <include input="portal-common-mc-lib.jar"/>
+      </export>
+   </component>
+
+</project>

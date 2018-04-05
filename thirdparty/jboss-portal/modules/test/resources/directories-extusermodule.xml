@@ -1,0 +1,94 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<directories>
+   <directory>
+      <directory-name>OpenDS</directory-name>
+      <description>OpenDS service deployed on JBoss AS as an mbean</description>
+      <config-file>test/config/extuser/opends-config.xml</config-file>
+      <host>localhost</host>
+      <port>10389</port>
+      <context-factory>com.sun.jndi.ldap.LdapCtxFactory</context-factory>
+      <admin-dn>cn=Directory Manager</admin-dn>
+      <admin-password>password</admin-password>
+      <populate-ldif>test/ldif/initial-tests-qa-opends.ldif</populate-ldif>
+      <cleanup-dn>dc=example,dc=com</cleanup-dn>
+   </directory>
+   <directory>
+      <directory-name>Sun DS</directory-name>
+      <description>Sun DS in QA Labs</description>
+      <config-file>test/config/extuser/sunds-config.xml</config-file>
+      <host>dev39.qa.atl.jboss.com</host>
+      <port>1389</port>
+      <context-factory>com.sun.jndi.ldap.LdapCtxFactory</context-factory>
+      <admin-dn>cn=Directory Manager</admin-dn>
+      <admin-password>testldap</admin-password>
+      <populate-ldif>test/ldif/initial-tests-qa-sunds.ldif</populate-ldif>
+      <cleanup-dn>dc=example,dc=com</cleanup-dn>
+   </directory>
+   <directory>
+      <directory-name>RedHatDS</directory-name>
+      <description>RedHat Directory in QA Labs (need vpn access)</description>
+      <config-file>test/config/extuser/rhds-config.xml</config-file>
+      <host>dev39.qa.atl.jboss.com</host>
+      <port>10389</port>
+      <context-factory>com.sun.jndi.ldap.LdapCtxFactory</context-factory>
+      <admin-dn>cn=Directory Manager</admin-dn>
+      <admin-password>qpq123qpq</admin-password>
+
+      <populate-ldif>test/ldif/initial-tests-qa.ldif</populate-ldif>
+
+      <cleanup-dn>dc=testsuite,dc=portal,dc=qa,dc=atl,dc=jboss,dc=com</cleanup-dn>
+   </directory>
+
+   <directory>
+      <directory-name>OpenLDAP</directory-name>
+      <description>OpenLDAP Directory in QA Labs (need vpn access)</description>
+
+      <config-file>test/config/extuser/openldap-config.xml</config-file>
+      <host>dev39.qa.atl.jboss.com</host>
+      <port>389</port>
+      <context-factory>com.sun.jndi.ldap.LdapCtxFactory</context-factory>
+      <admin-dn>cn=Manager,dc=my-domain,dc=com</admin-dn>
+      <admin-password>jbossqa</admin-password>
+
+      <populate-ldif>test/ldif/initial-tests-qa-openldap.ldif</populate-ldif>
+
+      <cleanup-dn>dc=testsuite,dc=portal,dc=my-domain,dc=com</cleanup-dn>
+  </directory>
+  <!--<directory>
+      <directory-name>MSAD</directory-name>
+      <description>Microsoft Active Directory in QA Labs (need vpn access)</description>
+
+      <config-file>test/config/msad-config.xml</config-file>
+      <host>dev44.qa.atl.jboss.com</host>
+      <port>389</port>
+      <context-factory>com.sun.jndi.ldap.LdapCtxFactory</context-factory>
+      <admin-dn>JBOSS\jbossqa</admin-dn>
+      <admin-password>jboss42</admin-password>
+
+      <populate-ldif>test/ldif/initial-tests-qa-msad.ldif</populate-ldif>
+
+      <cleanup-dn>ou=testsuite,ou=portal,dc=jboss,dc=test</cleanup-dn>
+   </directory>-->
+</directories>

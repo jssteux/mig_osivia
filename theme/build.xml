@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<!DOCTYPE project [
+   <!ENTITY libraries  SYSTEM "../thirdparty/libraries.ent">
+   <!ENTITY buildmagic SYSTEM "../tools/etc/buildfragments/buildmagic.ent">
+   <!ENTITY tools      SYSTEM "../tools/etc/buildfragments/tools.ent">
+   <!ENTITY modules    SYSTEM "../tools/etc/buildfragments/modules.ent">
+   <!ENTITY defaults   SYSTEM "../tools/etc/buildfragments/defaults.ent">
+   <!ENTITY targets    SYSTEM "../tools/etc/buildfragments/targets.ent">
+   ]>
+
+<!-- $Id: build.xml 12383 2008-12-15 14:19:24Z thomas.heute@jboss.com $ -->
+
+<!--+======================================================================+-->
+<!--| JBoss Portal (The OpenSource Portal) Build File                      |-->
+<!--|                                                                      |-->
+<!--| Distributable under LGPL license.                                    |-->
+<!--| See terms of license at http://www.gnu.org.                          |-->
+<!--|                                                                      |-->
+<!--| This file has been designed to work with the 'tools' module and      |-->
+<!--| Buildmagic extentions.                                               |-->
+<!--+======================================================================+-->
+
+<project default="main" name="JBoss Portal">
+
+   <!--+====================================================================+-->
+   <!--| Setup                                                              |-->
+   <!--|                                                                    |-->
+   <!--| Include the common build elements.                                 |-->
+   <!--|                                                                    |-->
+   <!--| This defines several different targets, properties and paths.      |-->
+   <!--| It also sets up the basic extention tasks amoung other things.     |-->
+   <!--+====================================================================+-->
+
+   &buildmagic;
+   &modules;
+   &defaults;
+   &tools;
+   &targets;
+
+   <!-- ================================================================== -->
+   <!-- Initialization                                                     -->
+   <!-- ================================================================== -->
+
+   <!--
+      | Initialize the build system.  Must depend on '_buildmagic:init'.
+      | Other targets should depend on 'init' or things will mysteriously fail.
+    -->
+
+   <target name="init" unless="init.disable" depends="_buildmagic:init">
+   </target>
+
+   <!--+====================================================================+-->
+   <!--| Configuration                                                      |-->
+   <!--|                                                                    |-->
+   <!--| This target is invoked by the Buildmagic initialization logic      |-->
+   <!--| and should contain module specific configuration elements.         |-->
+   <!--+====================================================================+-->
+
+   <target name="configure" unless="configure.disable">
+
+      <!-- Configure some properties -->
+      <property name="jboss-junit-configuration" value=""/>
+      <property name="junit.formatter.usefile" value="true"/>
+
+      <!-- Configure thirdparty libraries -->
+      &libraries;
+      <echo message="${xdoclet.xdoclet.lib}"/>
+      <echo message="${sun.servlet.lib}"/>
+      <path id="library.classpath">
+         <path refid="jboss.portal/modules/common.classpath"/>
+         <path refid="jboss.portal/modules/web.classpath"/>
+         <path refid="jboss.portal/modules/portlet.classpath"/>
+         <path refid="jboss.portal/modules/test.classpath"/>
+         <path refid="oswego.concurrent.classpath"/>
+         <path refid="jboss.jbossxb.classpath"/>
+         <path refid="jbossas/core.libs.classpath"/>
+         <path refid="apache.ant.classpath"/>
+         <path refid="apache.log4j.classpath"/>
+         <path refid="apache.httpclient.classpath"/>
+         <path refid="apache.logging.classpath"/>
+         <path refid="apache.xerces.classpath"/>
+         <path refid="junit.junit.classpath"/>
+         <path refid="jsunit.jsunit.classpath"/>
+         <path refid="jetty.jetty.classpath"/>
+         <path refid="sun.servlet.classpath"/>
+         <path refid="sun.jaf.classpath"/>
+      </path>
+
+      <!-- Configure modules -->
+      <call target="configure-modules"/>
+      <path id="dependentmodule.classpath">
+         <path refid="jboss.portal-jems.classpath"/>
+         <path refid="jboss.portal-server.classpath"/>
+      </path>
+
+      <!--+=======================================+-->
+      <!--| Override any default properties here. |-->
+      <!--+=======================================+-->
+
+      <!-- Configure defaults & build tools -->
+      <call target="configure-defaults"/>
+      <call target="configure-tools"/>
+
+      <!--+=======================================+-->
+      <!--| Define module specific elements here. |-->
+      <!--+=======================================+-->
+      <property name="javadoc.private" value="true"/>
+      <property name="javadoc.protected" value="false"/>
+
+   </target>
+
+   <!--+====================================================================+-->
+   <!--| Compile                                                            |-->
+   <!--|                                                                    |-->
+   <!--| This target should depend on other compile-* targets for each      |-->
+   <!--| different type of compile that needs to be performed, short of     |-->
+   <!--| documentation compiles.                                            |-->
+   <!--+====================================================================+-->
+
+   <target name="compile"
+           description="Compile all source files."
+           depends="_default:compile-classes,
+               _default:compile-etc,
+               _default:compile-resources">
+      <!-- Add module specific elements here. -->
+   </target>
+
+   <!--+====================================================================+-->
+   <!--| Generate Output                                                    |-->
+   <!--|                                                                    |-->
+   <!--| Generates the target output for this module. Target output is      |-->
+   <!--| the output which is ment to be released or used by external        |-->
+   <!--| modules.                                                           |-->
+   <!--+====================================================================+-->
+
+   <target name="output"
+           description="Generate all target output."
+           depends="compile">
+
+      <!-- -->
+      <mkdir dir="${build.lib}"/>
+
+      <!-- -->
+      <jar jarfile="${build.lib}/portal-theme-lib.jar">
+         <fileset dir="${build.classes}" excludes="org/jboss/portal/test/**"/>
+      </jar>
+
+      <copy todir="${build.resources}/portal-ajax-war">
+         <fileset dir="${source.bin}/portal-ajax-war"/>
+         <fileset dir="${source.resources}/portal-ajax-war"/>
+      </copy>
+   </target>
+
+   <!-- ================================================================== -->
+   <!-- Cleaning                                                           -->
+   <!-- ================================================================== -->
+
+   <!-- Clean up all build output -->
+   <target name="clean" depends="_default:clean">
+      <!-- Add module specific elements here. -->
+   </target>
+
+   <!--+====================================================================+-->
+   <!--| Documents                                                          |-->
+   <!--|                                                                    |-->
+   <!--| Generate all documentation for this module.                        |-->
+   <!--+====================================================================+-->
+
+   <target name="docs" depends="_default:docs">
+      <!-- Add module specific elements here. -->
+   </target>
+
+   <!-- ================================================================== -->
+   <!-- Misc.                                                              -->
+   <!-- ================================================================== -->
+
+   <target name="main" depends="most"/>
+   <target name="all" depends="_default:all"/>
+   <target name="most" depends="_default:most"/>
+   <target name="help" depends="_default:help"/>
+
+   <!-- ================================================================== -->
+   <!-- Deployment                                                         -->
+   <!-- ================================================================== -->
+
+   <target name="style" depends="init">
+      <xslt
+         style="${source.resources}/style/toto.xsl"
+         in="${source.resources}/test/default-portal.xml"
+         out="${build.resources}/test/toto.xml">
+      </xslt>
+   </target>
+
+
+   <!-- ================================================================== -->
+   <!-- Tests                                                              -->
+   <!-- ================================================================== -->
+
+   <!-- Packages all the test related artifacts. Note that compilation should have be-->
+   <target name="package-tests" depends="jar-test"
+           description="Packages all the test-related artifacts. Does NOT compile classes so this should be done before calling this task.">
+
+      <jar jarfile="${build.lib}/theme-test.war">
+         <fileset dir="${source.bin}/portal-ajax-war" includes="dyna/**"/>
+         <fileset dir="${build.resources}/test/theme-test-war"/>
+         <fileset dir="${source.bin}/theme-test-war"/>
+      </jar>
+      <jar jarfile="${build.lib}/theme-test.sar">
+         <fileset dir="${build.lib}" includes="theme-test.war"/>
+         <fileset dir="${build.resources}/test/theme-test-sar"/>
+         <fileset dir="${jboss.portal/modules/common.lib}"
+                  includes="portal-common-lib.jar,portal-common-portal-lib.jar"/>
+         <fileset dir="${jboss.portal-server.root}/lib" includes="portal-server-lib.jar"/>
+         <fileset dir="${jboss.portal-jems.root}/lib" includes="portal-jems-lib.jar"/>
+         <fileset dir="${jboss.portal/modules/web.lib}" includes="portal-web-lib.jar"/>
+         <fileset dir="${jboss.portlet-api.root}/lib" includes="portal-api-lib.jar"/>
+         <fileset dir="${jboss.portal-theme.root}/lib" includes="portal-theme-lib.jar"/>
+         <fileset dir="${jboss.portal/modules/test.lib}" includes="portal-test-lib.jar"/>
+         <fileset dir="${jboss.portal-test.root}/lib/../.." includes="selenium-java-client-driver-backport.jar"/>
+         <fileset dir="${build.lib}" includes="portal-theme-test-lib.jar"/>
+         <fileset dir="${junit.junit.lib}" includes="junit.jar"/>
+      </jar>
+
+   </target>
+
+   <target name="jar-test" description="Generate the theme test artifacts" depends="init">
+
+      <jar jarfile="${build.lib}/portal-theme-test-lib.jar">
+         <fileset dir="${build.classes}" includes="org/jboss/portal/test/**"/>
+      </jar>
+   </target>
+
+   <target name="tests" depends="init">
+      <!--
+      <property name="build.testlog" value="${module.output}/log"/>
+      <execute-tests>
+         <x-test>
+         </x-test>
+         <x-classpath>
+            <path refid="oswego.concurrent.classpath"/>
+            <path refid="jboss.jbossxb.classpath"/>
+            <path refid="apache.xerces.classpath"/>
+            <path refid="jbossas/core.libs.classpath"/>
+            <path refid="apache.ant.classpath"/>
+            <path refid="apache.log4j.classpath"/>
+            <path refid="apache.httpclient.classpath"/>
+            <path refid="apache.logging.classpath"/>
+            <path refid="junit.junit.classpath"/>
+            <path refid="jsunit.jsunit.classpath"/>
+            <path refid="jetty.jetty.classpath"/>
+            <path refid="sun.servlet.classpath"/>
+            <path refid="sun.jaf.classpath"/>
+            <path refid="jboss.portal/modules/common.classpath"/>
+            <path refid="jboss.portal-server.classpath"/>
+            <path refid="jboss.portal-jems.classpath"/>
+            <path refid="jboss.portal-theme.classpath"/>
+            <path refid="jboss.portlet-api.classpath"/>
+            <pathelement location="${build.resources}/test"/>
+            <pathelement location="${build.resources}/hibernate"/>
+            <pathelement location="${jboss.portal/modules/test.resources}"/>
+            <pathelement location="${build.lib}/portal-theme-test-lib.jar"/>
+         </x-classpath>
+      </execute-tests>
+      -->
+      <!--
+         JSUnit TestRunner URL: http://localhost:8080/theme-test/jsunit/testRunner.html
+         testPage URL: http://localhost:8080/theme-test/testtheme
+         Entire autorun URL: http://localhost:8080/theme-test/jsunit/testRunner.html?testPage=http://localhost:8080/theme-test/testtheme&autoRun=true&submitresults=true
+
+         How-to:
+         1. deploy theme-test.sar
+         2. Point your browser to: http://localhost:8080/theme-test/jsunit/testRunner.html?testPage=http://localhost:8080/theme-test/testtheme&autoRun=true&submitresults=true
+         3. Tests should execute and forward to a (currently) 4040: http://localhost:8080/jsunit/acceptor
+      -->
+   </target>
+
+   <target name="test" depends="init">
+      <property name="build.testlog" value="${module.output}/log"/>
+      <execute-tests>
+         <x-sysproperty>
+            <sysproperty key="test.root" value="${build.lib}"/>
+            <!--
+                        <jvmarg value="-Xdebug"/>
+                        <jvmarg value="-Xrunjdwp:transport=dt_socket,address=7878,server=y,suspend=y"/>
+            -->
+         </x-sysproperty>
+         <x-test>
+            <!--<test todir="${test.reports}" name="org.jboss.portal.test.theme.ThemeTestRunner"/>-->
+            <test todir="${test.reports}" name="org.jboss.portal.test.theme.DynaMergeBehaviorTestCase"/>
+         </x-test>
+         <x-classpath>
+            <path refid="jboss/jbossretro.rt.classpath"/>
+            <path refid="jboss.serialization.classpath"/>
+            <path refid="jboss.remoting.classpath"/>
+            <path refid="jboss.microcontainer.classpath"/>
+            <path refid="oswego.concurrent.classpath"/>
+            <path refid="jboss.jbossxb.classpath"/>
+            <path refid="apache.xerces.classpath"/>
+            <path refid="jbossas/core.libs.classpath"/>
+            <path refid="apache.ant.classpath"/>
+            <path refid="apache.log4j.classpath"/>
+            <path refid="apache.httpclient.classpath"/>
+            <path refid="apache.logging.classpath"/>
+            <path refid="junit.junit.classpath"/>
+            <path refid="jsunit.jsunit.classpath"/>
+            <path refid="jetty.jetty.classpath"/>
+            <path refid="sun.servlet.classpath"/>
+            <path refid="sun.jaf.classpath"/>
+            <path refid="jboss.portal/modules/common.classpath"/>
+            <path refid="jboss.portal-server.classpath"/>
+            <path refid="jboss.portal-jems.classpath"/>
+            <pathelement location="${jboss.portal/modules/test.lib}/portal-test-jboss-lib.jar"/>
+            <path refid="jboss.portal/modules/test.classpath"/>
+            <path refid="jboss.portal-theme.classpath"/>
+            <path refid="jboss.portlet-api.classpath"/>
+            <pathelement location="${build.resources}/test"/>
+            <pathelement location="${build.resources}/hibernate"/>
+            <pathelement location="${jboss.portal/modules/test.resources}"/>
+            <pathelement location="${build.lib}/portal-theme-test-lib.jar"/>
+            <pathelement location="${jboss.portal-test.root}/lib/../../selenium-java-client-driver-backport.jar"/>
+         </x-classpath>
+      </execute-tests>
+   </target>
+
+</project>

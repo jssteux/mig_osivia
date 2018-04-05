@@ -1,0 +1,13 @@
+<project name="jboss-portal-identity-component-info">
+   <component id="jboss-portal/modules/cms"
+              licenseType="lgpl"
+              version="1.2.8"
+              projectHome="http://labs.jboss.com/jbossportal"
+              description="JBoss Portal CMS module libraries">
+      <!--jars-->
+      <artifact id="cms-jackrabbit.jar"/>      
+      <export>
+         <include input="cms-jackrabbit.jar"/>
+      </export>
+   </component>
+</project>

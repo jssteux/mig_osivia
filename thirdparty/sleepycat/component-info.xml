@@ -1,0 +1,13 @@
+<project name="sleepycat-component-info">
+
+   <component id="sleepycat"
+              licenseType="sleepycat"
+              version="3.0.12"
+              projectHome="http://www.sleepycat.com"
+              description="OpenDS integration with HEAD testsuite">
+      <artifact id="je.jar"/>
+      <export>
+         <include input="je.jar"/>
+      </export>
+   </component>
+</project>

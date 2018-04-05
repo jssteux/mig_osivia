@@ -1,0 +1,120 @@
+<configurations>
+   <!-- The default configuration that will apply everywhere -->
+   <configuration>
+      <configuration-name>default</configuration-name>
+      <properties>
+         <property>
+            <name>hibernate.show_sql</name>
+            <value>true</value>
+         </property>
+         <property>
+            <name>hibernate.auto_close_session</name>
+            <value>true</value>
+         </property>
+         <property>
+            <name>hibernate.transaction.flush_before_completion</name>
+            <value>true</value>
+         </property>
+         <property>
+            <name>hibernate.transaction.factory_class</name>
+            <value>org.hibernate.transaction.JTATransactionFactory</value>
+         </property>
+         <property>
+            <name>hibernate.transaction.manager_lookup_class</name>
+            <value>org.hibernate.transaction.JBossTransactionManagerLookup</value>
+         </property>
+         <property>
+            <name>hibernate.cache.provider_class</name>
+            <value>org.hibernate.cache.HashtableCacheProvider</value>
+         </property>
+         <property>
+            <name>hibernate.cache.use_second_level_cache</name>
+            <value>false</value>
+         </property>
+         <property>
+            <name>hibernate.cache.use_query_cache</name>
+            <value>false</value>
+         </property>
+      </properties>
+   </configuration>
+   <!-- The hsqldb configuration -->
+   <configuration>
+      <configuration-name>hsqldb</configuration-name>
+      <properties>
+         <property>
+            <name>hibernate.dialect</name>
+            <value>org.hibernate.dialect.HSQLDialect</value>
+         </property>
+      </properties>
+   </configuration>
+   <!-- The oracle 9i configuration -->
+   <configuration>
+      <configuration-name>oracle9i</configuration-name>
+      <properties>
+         <property>
+            <name>hibernate.dialect</name>
+            <value>org.hibernate.dialect.Oracle9Dialect</value>
+         </property>
+         <!-- Needed in order to avoid the bug described in HBX-146 to happen in instance container test case -->
+         <property>
+            <name>hibernate.cache.use_second_level_cache</name>
+            <value>true</value>
+         </property>
+      </properties>
+   </configuration>
+   <!-- The oracle 10g configuration -->
+   <configuration>
+      <configuration-name>oracle10g</configuration-name>
+      <properties>
+         <property>
+            <name>hibernate.dialect</name>
+            <value>org.hibernate.dialect.Oracle9Dialect</value>
+         </property>
+         <!-- Needed in order to avoid the bug described in HBX-146 to happen in instance container test case -->
+         <property>
+            <name>hibernate.cache.use_second_level_cache</name>
+            <value>true</value>
+         </property>
+      </properties>
+   </configuration>
+   <!-- The sqlserver configuration -->
+   <configuration>
+      <configuration-name>sqlserver</configuration-name>
+      <properties>
+         <property>
+            <name>hibernate.dialect</name>
+            <value>org.hibernate.dialect.SQLServerDialect</value>
+         </property>
+      </properties>
+   </configuration>
+   <!-- The mysql 4 configuration -->
+   <configuration>
+      <configuration-name>mysql4</configuration-name>
+      <properties>
+         <property>
+            <name>hibernate.dialect</name>
+            <value>org.hibernate.dialect.MySQLInnoDBDialect</value>
+         </property>
+      </properties>
+   </configuration>
+   <!-- The mysql 5 configuration -->
+   <configuration>
+      <configuration-name>mysql5</configuration-name>
+      <properties>
+         <property>
+            <name>hibernate.dialect</name>
+            <value>org.hibernate.dialect.MySQLInnoDBDialect</value>
+         </property>
+      </properties>
+   </configuration>
+   <!-- The postgresql 8 configuration -->
+   <configuration>
+      <configuration-name>postgresql8</configuration-name>
+      <properties>
+         <property>
+            <name>hibernate.dialect</name>
+            <value>org.hibernate.dialect.PostgreSQLDialect</value>
+         </property>
+      </properties>
+   </configuration>
+</configurations>

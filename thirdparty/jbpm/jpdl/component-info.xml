@@ -1,0 +1,41 @@
+<project name="jbpm/jpdl-component-info">
+
+   <component id="jbpm/jpdl"
+              licenseType="lgpl"
+              version="3.2.GA"
+              projectHome="http://jbpm.org/"
+              description="BPM and workflow engine in Java">
+
+      <artifact id="jbpm-jpdl.jar"/>
+      <artifact id="jbpm-identity.jar"/>
+      <artifact id="jbpm-jmx.jar"/>      
+      <artifact id="jbpm-console.war"/>
+
+      <import componentref="hibernate">
+         <compatible version="3.1"/>
+         <compatible version="3.2.0.CR1"/>
+         <compatible version="3.2.0.CR2"/>
+         <compatible version="3.2.0.GA"/>
+         <compatible version="3.2.1.GA"/>
+         <compatible version="3.2.3.GA"/>
+         <compatible version="3.2.4.SP1"/>
+         <compatible version="3.2.4.SP1_CP01-brew"/>
+         <compatible version="3.2.4.SP1_CP02-brew"/>
+         <compatible version="3.2.4.SP1_CP03-brew"/>
+         <compatible version="3.2.4.SP1_CP04-brew"/>
+         <compatible version="3.2.4.SP1_CP06-brew"/>
+         <compatible version="3.2.4.SP1_CP07-brew"/>
+         <compatible version="3.2.4.SP1_CP08-brew"/>
+         <compatible version="3.2.4.SP1_CP09-brew"/>
+         <compatible version="3.2.4.SP1_CP10-brew"/>
+         <compatible version="3.2.4.SP1_CP11-brew"/>
+         <compatible version="3.2.4.SP1_CP12-brew"/>
+      </import>
+
+      <export>
+        <include input="jbpm-jpdl.jar"/>
+      </export>
+
+   </component>
+
+</project>

@@ -1,0 +1,37 @@
+/* Test renderer styling. */
+
+div.test-region {
+   border: 0px;
+   margin: 16px;
+   width: 512px;
+   padding: 0px;
+   background-color: red;
+}
+
+div.test-window {
+   border: 1px solid black;
+   padding: 15px;
+   background-color: blue;
+}
+
+div.test-decoration {
+   border: 1px solid black;
+   height: 31px;
+   background-color: green;
+}
+
+div.test-portlet {
+   border: 1px solid black;
+   height: 127px;
+   background-color: yellow;
+}
+
+/* Dyna renderer styling. */
+
+div.dyna-handle:hover {
+   cursor: move;
+}
+
+div.dyna-region {
+   background-color: cyan;
+}

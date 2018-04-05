@@ -1,0 +1,17 @@
+<project name="facelets-component-info">
+
+	<component id="facelets" 
+	 licenseType="cddl" 
+	 version="1.1.15-B1" 
+	 projectHome="https://facelets.dev.java.net/" 
+	 description="sun facelets">
+	 
+	<artifact id="jsf-facelets.jar"/>
+	
+
+	<export>
+		<include input="jsf-facelets.jar"/>
+
+	</export>
+</component>
+</project>

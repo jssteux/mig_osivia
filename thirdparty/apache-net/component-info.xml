@@ -1,0 +1,9 @@
+<project name="apache-commons-net">
+	<component id="apache-net" licenseType="apache-2.0" version="1.4.1" projectHome="http://jakarta.apache.org/commons/net/" description="Provides 
+fundamental protocol access">
+	<artifact id="commons-net-1.4.1.jar"/>
+	<export>
+		<include input="commons-net-1.4.1.jar"/>
+	</export>
+	</component>
+</project>

@@ -1,0 +1,16 @@
+<project name="glassfish-javamail-component-info">
+
+   <component id="glassfish/javamail"
+              version="1.4.0-brew"
+              licenseType="cddl"
+              projectHome="https://glassfish.dev.java.net/javaee5/mail/"
+              description="JavaMail APIs from glashfish(http://wiki.java.net/bin/view/Projects/GlassFishCodeDependencies)"
+              tag="glassfish-javamail-1_4_0-0jpp_ep1_10_el4">
+      <artifact id="mail.jar"/>
+      <export>
+         <include input="mail.jar"/>
+      </export>
+   </component>
+
+
+</project>

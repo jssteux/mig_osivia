@@ -1,0 +1,20 @@
+<project name="jboss-portal-web-component-info">
+   <component id="jboss-portal/modules/web"
+              licenseType="lgpl"
+              version="1.2.4"
+              projectHome="http://labs.jboss.com/jbossportal"
+              description="JBoss Portal web module library">
+      <artifact id="portal-web-lib.jar"/>
+      <artifact id="portal-web-lib-sources.jar"/>
+      <import componentref="jboss-portal/modules/common">
+         <compatible version="1.2.3"/>
+         <compatible version="1.2.4"/>
+         <compatible version="1.2.5"/>
+         <compatible version="trunk-SNAPSHOT"/>
+      </import>
+      <export>
+         <include input="portal-web-lib.jar"/>
+      </export>
+   </component>
+
+</project>

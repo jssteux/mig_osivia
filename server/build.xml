@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<!DOCTYPE project [
+   <!ENTITY libraries  SYSTEM "../thirdparty/libraries.ent">
+   <!ENTITY buildmagic SYSTEM "../tools/etc/buildfragments/buildmagic.ent">
+   <!ENTITY tools      SYSTEM "../tools/etc/buildfragments/tools.ent">
+   <!ENTITY modules    SYSTEM "../tools/etc/buildfragments/modules.ent">
+   <!ENTITY defaults   SYSTEM "../tools/etc/buildfragments/defaults.ent">
+   <!ENTITY targets    SYSTEM "../tools/etc/buildfragments/targets.ent">
+   ]>
+
+<!-- $Id: build.xml 11704 2008-08-19 13:56:03Z thomas.heute@jboss.com $ -->
+
+<!--+======================================================================+-->
+<!--| JBoss Portal (The OpenSource Portal) Build File                      |-->
+<!--|                                                                      |-->
+<!--| Distributable under LGPL license.                                    |-->
+<!--| See terms of license at http://www.gnu.org.                          |-->
+<!--|                                                                      |-->
+<!--| This file has been designed to work with the 'tools' module and      |-->
+<!--| Buildmagic extentions.                                               |-->
+<!--+======================================================================+-->
+
+<project default="main" name="JBoss Portal">
+
+   <!--+====================================================================+-->
+   <!--| Setup                                                              |-->
+   <!--|                                                                    |-->
+   <!--| Include the common build elements.                                 |-->
+   <!--|                                                                    |-->
+   <!--| This defines several different targets, properties and paths.      |-->
+   <!--| It also sets up the basic extention tasks amoung other things.     |-->
+   <!--+====================================================================+-->
+
+   &buildmagic;
+   &modules;
+   &defaults;
+   &tools;
+   &targets;
+
+   <!-- ================================================================== -->
+   <!-- Initialization                                                     -->
+   <!-- ================================================================== -->
+
+   <!--
+      | Initialize the build system.  Must depend on '_buildmagic:init'.
+      | Other targets should depend on 'init' or things will mysteriously fail.
+    -->
+
+   <target name="init" unless="init.disable" depends="_buildmagic:init">
+   </target>
+
+   <!--+====================================================================+-->
+   <!--| Configuration                                                      |-->
+   <!--|                                                                    |-->
+   <!--| This target is invoked by the Buildmagic initialization logic      |-->
+   <!--| and should contain module specific configuration elements.         |-->
+   <!--+====================================================================+-->
+
+   <target name="configure" unless="configure.disable">
+
+      <!-- Configure some properties -->
+      <property name="jboss-junit-configuration" value=""/>
+      <property name="junit.formatter.usefile" value="true"/>
+
+      <!-- Configure thirdparty libraries -->
+      &libraries;
+      <echo message="${xdoclet.xdoclet.lib}"/>
+      <echo message="${sun.servlet.lib}"/>
+      <path id="library.classpath">
+         <path refid="jboss.portal/modules/common.classpath"/>
+         <path refid="jboss.portal/modules/portlet.classpath"/>
+         <path refid="jboss.portal/modules/web.classpath"/>
+         <path refid="jboss.portal/modules/test.classpath"/>
+         <pathelement location="${jboss.portal/modules/test.lib}/portal-test-jboss-lib.jar"/>
+         <path refid="dom4j.dom4j.classpath"/>
+         <path refid="oswego.concurrent.classpath"/>
+         <path refid="jbossas/core.libs.classpath"/>
+         <path refid="apache.ant.classpath"/>
+         <path refid="apache.collections.classpath"/>
+         <path refid="apache.log4j.classpath"/>
+         <path refid="apache.httpclient.classpath"/>
+         <path refid="apache.logging.classpath"/>
+         <path refid="apache.codec.classpath"/>
+         <path refid="junit.junit.classpath"/>
+         <path refid="jboss.test.classpath"/>
+         <path refid="sun.servlet.classpath"/>
+         <pathelement location="jboss-bean-deployer.jar"/>
+         <pathelement location="jboss-container.jar"/>
+         <pathelement location="jboss-dependency.jar"/>
+         <pathelement location="jboss-microcontainer.jar"/>
+      </path>
+
+      <!-- Configure modules -->
+      <call target="configure-modules"/>
+      <path id="dependentmodule.classpath">
+
+         <path refid="jboss.portal-jems.classpath"/>
+      </path>
+
+      <!--+=======================================+-->
+      <!--| Override any default properties here. |-->
+      <!--+=======================================+-->
+
+      <!-- Configure defaults & build tools -->
+      <call target="configure-defaults"/>
+      <call target="configure-tools"/>
+
+      <!--+=======================================+-->
+      <!--| Define module specific elements here. |-->
+      <!--+=======================================+-->
+      <property name="javadoc.private" value="true"/>
+      <property name="javadoc.protected" value="false"/>
+
+   </target>
+
+   <!--+====================================================================+-->
+   <!--| Compile                                                            |-->
+   <!--|                                                                    |-->
+   <!--| This target should depend on other compile-* targets for each      |-->
+   <!--| different type of compile that needs to be performed, short of     |-->
+   <!--| documentation compiles.                                            |-->
+   <!--+====================================================================+-->
+
+   <target name="compile"
+           description="Compile all source files."
+           depends="_default:compile-classes,
+               _default:compile-etc,
+               _default:compile-resources">
+      <!-- Add module specific elements here. -->
+   </target>
+
+   <!--+====================================================================+-->
+   <!--| Generate Output                                                    |-->
+   <!--|                                                                    |-->
+   <!--| Generates the target output for this module. Target output is      |-->
+   <!--| the output which is ment to be released or used by external        |-->
+   <!--| modules.                                                           |-->
+   <!--+====================================================================+-->
+
+   <target name="output"
+           description="Generate all target output."
+           depends="compile">
+
+	      <!-- -->
+      <mkdir dir="${build.lib}"/>
+
+      <!-- -->
+      <jar jarfile="${build.lib}/portal-server-lib.jar" manifest="${build.resources}/etc/MANIFEST.MF">
+	         <fileset dir="${build.classes}" excludes="org/jboss/portal/test/**"/>
+	  </jar>    
+
+	      <copy todir="${build.resources}/portal-server-sar">
+	         <fileset dir="${jboss.portal/modules/common.lib}" includes="portal-common-lib.jar"/>
+            <fileset dir="${jboss.portal-jems.root}/lib" includes="portal-jems-lib.jar"/>
+	         <fileset dir="${build.lib}/" includes="portal-server-lib.jar"/>
+	      </copy>
+	      <jar jarfile="${build.lib}/portal-server.sar">
+	         <fileset dir="${build.resources}/portal-server-sar"/>
+	      </jar>   
+	      <jar jarfile="${build.lib}/portal-server-test-lib.jar">
+	         <fileset dir="${build.classes}" includes="org/jboss/portal/test/server/**"/>
+	       </jar>
+         <jar jarfile="${build.lib}/portal-server-test-framework-lib.jar">
+            <fileset dir="${build.classes}" includes="org/jboss/portal/test/framework/**"/>
+         </jar>
+	   </target>
+
+   <!-- generates artifacts used for tests, requires output to be previously run -->
+   <target name="package-tests" depends="init">
+
+	      <jar jarfile="${build.lib}/test-agent.war">
+	         <fileset dir="${build.resources}/test-agent-war"/>
+	      </jar>
+
+	      <jar jarfile="${build.lib}/test-parameters.sar">
+            <fileset dir="${junit.junit.lib}" includes="junit.jar"/>
+	         <fileset dir="${jboss.portal/modules/test.lib}" includes="portal-test-lib.jar"/>
+	         <fileset dir="${jboss.portal/modules/common.lib}" includes="portal-common-lib.jar"/>
+            <fileset dir="${jboss.portal-jems.root}/lib" includes="portal-jems-lib.jar"/>
+            <fileset dir="${jboss.portal/modules/web.lib}" includes="portal-web-lib.jar"/>
+	         <fileset dir="${build.lib}" includes="test-agent.war"/>
+	         <fileset dir="${build.lib}" includes="portal-server-lib.jar"/>
+	         <fileset dir="${build.lib}" includes="portal-server-test-lib.jar"/>
+	         <fileset dir="${build.lib}" includes="portal-server-test-framework-lib.jar"/>
+	         <fileset dir="${build.resources}/test/test-parameters-sar"/>
+	      </jar>
+
+	      <jar jarfile="${build.lib}/test-servlet-rootpathmapping.war">
+	         <fileset dir="${build.resources}/test/test-servlet-rootpathmapping-war"/>
+	      </jar>
+	      <jar jarfile="${build.lib}/test-servlet-pathmapping.war">
+	         <fileset dir="${build.resources}/test/test-servlet-pathmapping-war"/>
+	      </jar>
+	      <jar jarfile="${build.lib}/test-servlet-defaultservletmapping.war">
+	         <fileset dir="${build.resources}/test/test-servlet-defaultservletmapping-war"/>
+	      </jar>
+	      <jar jarfile="${build.lib}/test-servlet.sar">
+            <fileset dir="${junit.junit.lib}" includes="junit.jar"/>
+            <fileset dir="${jboss.portal/modules/test.lib}" includes="portal-test-lib.jar"/>
+	         <fileset dir="${jboss.portal/modules/common.lib}" includes="portal-common-lib.jar"/>
+            <fileset dir="${jboss.portal/modules/web.lib}" includes="portal-web-lib.jar"/>
+            <fileset dir="${jboss.portal-jems.root}/lib" includes="portal-jems-lib.jar"/>
+	         <fileset dir="${build.lib}" includes="test-agent.war"/>
+	         <fileset dir="${build.lib}" includes="portal-server-lib.jar"/>
+	         <fileset dir="${build.lib}" includes="portal-server-test-lib.jar"/>
+            <fileset dir="${build.lib}" includes="portal-server-test-framework-lib.jar"/>
+	         <fileset dir="${build.resources}/test/test-servlet-sar"/>
+	         <fileset dir="${build.lib}" includes="test-servlet-rootpathmapping.war"/>
+	         <fileset dir="${build.lib}" includes="test-servlet-pathmapping.war"/>
+	         <fileset dir="${build.lib}" includes="test-servlet-defaultservletmapping.war"/>
+	      </jar>  
+
+	      <jar jarfile="${build.lib}/test-charset.sar">
+            <fileset dir="${junit.junit.lib}" includes="junit.jar"/>
+            <fileset dir="${jboss.portal/modules/test.lib}" includes="portal-test-lib.jar"/>
+	         <fileset dir="${jboss.portal/modules/common.lib}" includes="portal-common-lib.jar"/>
+            <fileset dir="${jboss.portal/modules/web.lib}" includes="portal-web-lib.jar"/>
+            <fileset dir="${jboss.portal-jems.root}/lib" includes="portal-jems-lib.jar"/>
+	         <fileset dir="${build.lib}" includes="test-agent.war"/>
+	         <fileset dir="${build.lib}" includes="portal-server-lib.jar"/>
+	         <fileset dir="${build.lib}" includes="portal-server-test-lib.jar"/>
+            <fileset dir="${build.lib}" includes="portal-server-test-framework-lib.jar"/>
+	         <fileset dir="${build.resources}/test/test-charset-sar"/>
+	      </jar>      
+
+      <jar jarfile="${build.lib}/test-response.sar">
+         <fileset dir="${junit.junit.lib}" includes="junit.jar"/>
+         <fileset dir="${jboss.portal/modules/test.lib}" includes="portal-test-lib.jar"/>
+         <fileset dir="${jboss.portal/modules/common.lib}" includes="portal-common-lib.jar"/>
+         <fileset dir="${jboss.portal-jems.root}/lib" includes="portal-jems-lib.jar"/>
+         <fileset dir="${jboss.portal/modules/web.lib}" includes="portal-web-lib.jar"/>
+         <fileset dir="${build.lib}" includes="test-agent.war"/>
+         <fileset dir="${build.lib}" includes="portal-server-lib.jar"/>
+         <fileset dir="${build.lib}" includes="portal-server-test-lib.jar"/>
+         <fileset dir="${build.lib}" includes="portal-server-test-framework-lib.jar"/>
+         <fileset dir="${build.resources}/test/test-response-sar"/>
+      </jar>
+	   </target>
+
+   <!-- ================================================================== -->
+   <!-- Cleaning                                                           -->
+   <!-- ================================================================== -->
+
+   <!-- Clean up all build output -->
+   <target name="clean" depends="_default:clean">
+      <!-- Add module specific elements here. -->
+   </target>
+
+   <!--+====================================================================+-->
+   <!--| Documents                                                          |-->
+   <!--|                                                                    |-->
+   <!--| Generate all documentation for this module.                        |-->
+   <!--+====================================================================+-->
+
+   <target name="docs" depends="_default:docs">
+      <!-- Add module specific elements here. -->
+   </target>
+
+   <!-- ================================================================== -->
+   <!-- Misc.                                                              -->
+   <!-- ================================================================== -->
+
+   <target name="main" depends="most"/>
+   <target name="all" depends="_default:all"/>
+   <target name="most" depends="_default:most"/>
+   <target name="help" depends="_default:help"/>
+
+   <!-- ================================================================== -->
+   <!-- Deployment                                                         -->
+   <!-- ================================================================== -->
+
+   <target name="deploy"
+           description="Deploy."
+           depends="output">
+      <require file="${jboss.home}/server/${portal.deploy.dir}"/>
+      <copy file="${build.lib}/portal-server.sar" todir="${jboss.home}/server/${portal.deploy.dir}"/>
+   </target>
+
+   <target name="undeploy"
+           description="Undeploy."
+           depends="init">
+      <require file="${jboss.home}/server/${portal.deploy.dir}"/>
+      <delete file="${jboss.home}/server/${portal.deploy.dir}/portal-server.sar"/>
+   </target>
+
+   <target name="tests" depends="init">
+      <execute-tests>
+         <x-sysproperty>
+            <sysproperty key="test.root" value="${build.lib}"/>
+            <sysproperty key="test.uri" value="/test/redirect/"/>
+            <!--
+                        <jvmarg value="-Xdebug"/>
+                        <jvmarg value="-Xrunjdwp:transport=dt_socket,address=7878,server=y,suspend=y"/>
+            -->
+         </x-sysproperty>
+         <x-test>
+            <!-- Server side tests -->
+            <zest todir="${test.reports}"
+                  name="org.jboss.portal.test.framework.runner.HTTPTestRunner"
+                  outfile="TEST-test-charset"
+                  id="org.jboss.portal.server.charset">
+               <parameter name="archive" value="test-charset.sar"/>
+            </zest>
+            <zest todir="${test.reports}"
+                  name="org.jboss.portal.test.framework.runner.HTTPTestRunner"
+                  outfile="TEST-test-parameters"
+                  id="org.jboss.portal.server.parameters">
+               <parameter name="archive" value="test-parameters.sar"/>
+            </zest>
+            <zest todir="${test.reports}"
+                  name="org.jboss.portal.test.framework.runner.HTTPTestRunner"
+                  outfile="TEST-test-servlet"
+                  id="org.jboss.portal.server.servlet">
+               <parameter name="archive" value="test-servlet.sar"/>
+            </zest>
+            <zest todir="${test.reports}"
+                  name="org.jboss.portal.test.framework.runner.HTTPTestRunner"
+                  outfile="TEST-test-response"
+                  id="org.jboss.portal.server.response">
+               <parameter name="archive" value="test-response.sar"/>
+            </zest>
+            <test todir="${test.reports}" name="org.jboss.portal.test.server.request.URLContextTestCase"/>
+         </x-test>
+         <x-classpath>
+            <path refid="jboss.serialization.classpath"/>
+            <path refid="jboss.remoting.classpath"/>
+            <path refid="jboss.microcontainer.classpath"/>
+            <path refid="jboss.jbossxb.classpath"/>
+            <path refid="apache.xerces.classpath"/>
+            <pathelement location="${build.classes}"/>
+            <pathelement location="${build.resources}"/>
+            <pathelement location="${jboss.portal/modules/test.lib}/portal-test-jboss-lib.jar"/>
+            <path refid="library.classpath"/>
+            <path refid="dependentmodule.classpath"/>
+         </x-classpath>
+      </execute-tests>
+   </target>
+</project>

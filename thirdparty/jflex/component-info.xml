@@ -1,0 +1,14 @@
+<project name="jflex-component-info">
+   <component id="jflex"
+              licenseType="gpl"
+              version="1.4.0"
+              projectHome="http://jflex.de/"
+              description="lexical analyzer generator">
+      <artifact id="jflex.jar"/>
+      
+      <export>
+         <include input="jflex.jar"/>         
+      </export>
+   </component>
+
+</project>

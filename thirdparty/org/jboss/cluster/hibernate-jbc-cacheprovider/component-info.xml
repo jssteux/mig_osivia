@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="org.jboss.cluster/hibernate-jbc-cacheprovider-component-info">
+  <component id="org/jboss/cluster/hibernate-jbc-cacheprovider"
+             licenseType="lgpl"
+             version="1.0.0.GA"
+             description="org.jboss.cluster:hibernate-jbc-cacheprovider:jar:1.0.0.GA"
+             scm="svn:https://svn.jboss.org/repos/jbossas/projects/cluster/hibernate-jbc-cacheprovider/tags/1.0.0.GA"
+             > 
+              
+    <artifact id="hibernate-jbc-cacheprovider-sources.jar"/>
+    <artifact id="hibernate-jbc-cacheprovider.jar"/>
+
+
+    <export>
+      <include input="hibernate-jbc-cacheprovider.jar"/>
+
+    </export>
+  </component>
+</project>

@@ -1,0 +1,15 @@
+<project name="sun-el-component-info">
+   <component id="el"
+              licenseType="cddl"
+              version="1.0"
+              projectHome="https://javaserverfaces.dev.java.net/"
+              description="Expression Language libraries for JSF (Sun's implementation)">
+      <artifact id="el-api.jar"/>
+      <artifact id="el-ri.jar"/>
+      <export>
+         <include input="el-api.jar"/>
+         <include input="el-ri.jar"/>
+      </export>
+   </component>
+
+</project>

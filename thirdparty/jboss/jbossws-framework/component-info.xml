@@ -1,0 +1,27 @@
+<project name="jboss/jbossws-framework">
+	
+  <component id="jboss/jbossws-framework" 
+    description="JBossWS SPI" 
+    version="2.0.1.GA-brew"
+    tag="jbossws-framework-2_0_1-0jpp_ep1_11_el4"
+    licenseType="lgpl">
+    
+    <artifact id="jbossws-framework.jar"/>
+    <artifact id="jbossws-framework-scripts.zip"/>
+    
+    <import componentref="jboss/jbossws-common">
+      <compatible version="1.0.0.GA"/>
+      <compatible version="1.0.0.GA-brew"/>
+      <compatible version="1.0.0.GA_CP01-brew"/>
+    </import>
+    <import componentref="jboss/jbossws-spi">
+      <compatible version="1.0.0.GA"/>
+      <compatible version="1.0.0.GA-brew"/>
+    </import>
+    
+    <export>
+    </export>
+    
+  </component>
+	
+</project>

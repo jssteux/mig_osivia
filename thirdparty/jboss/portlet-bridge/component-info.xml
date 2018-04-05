@@ -1,0 +1,16 @@
+<project name="jboss/portlet-bridge/richfaces-component-info">
+
+	<component id="jboss/portlet-bridge" 
+	 licenseType="lgpl" 
+	 version="1.0.0.B6" 
+	 projectHome="http://www.jboss.org/portletbridge/" 
+	 description="JBoss Portlet Bridge">
+	 
+	<artifact id="portletbridge-api.jar"/>
+        <artifact id="portletbridge-impl.jar"/>
+	<export>
+		<include input="portletbridge-api.jar"/>
+		<include input="portletbridge-impl.jar"/>
+	</export>
+</component>
+</project>

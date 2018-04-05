@@ -1,0 +1,18 @@
+<project name="jboss/jbossws-spi">
+	
+  <component id="jboss/jbossws-spi" 
+    description="JBossWS SPI" 
+    version="1.0.0.GA-brew"
+    tag="jbossws-spi-1_0_0-0jpp_ep1_7"
+    licenseType="lgpl">
+    
+    <artifact id="jbossws-spi.jar"/>
+    <artifact id="jbossws-spi-src.zip"/>
+    
+    <export>
+      <include input="jbossws-spi.jar"/>
+    </export>
+    
+  </component>
+	
+</project>

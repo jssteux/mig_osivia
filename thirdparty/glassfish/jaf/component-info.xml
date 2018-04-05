@@ -1,0 +1,17 @@
+<project name="glassfish-jaf-component-info">
+
+   <component id="glassfish/jaf"
+              licenseType="cddl"
+              version="1.1.0-brew"
+              projectHome="https://glassfish.dev.java.net/"
+              description="JavaBeans Activation Framework from glashfish(http://wiki.java.net/bin/view/Projects/GlassFishCodeDependencies)"
+              tag="glassfish-jaf-1_1_0-0jpp_ep1_12_el4">
+
+      <artifact id="activation.jar"/>
+      <export>
+         <include input="activation.jar"/>
+      </export>
+   </component>
+
+
+</project>

@@ -1,0 +1,15 @@
+<project name="jcr-component-info">
+
+   <component id="jcr"
+      licenseType="day-jcr"
+      version="1.0"
+      projectHome="http://jsr170tools.day.com/crx/index.jsp"
+      description="content repository API, JSR-170 complient">
+
+      <artifact id="jcr-1.0.jar"/>    
+      
+      <export>
+         <include input="jcr-1.0.jar"/>
+      </export>
+   </component>
+</project>

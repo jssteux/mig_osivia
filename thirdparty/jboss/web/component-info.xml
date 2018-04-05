@@ -1,0 +1,36 @@
+<project name="jboss/web-component-info">
+
+   <component id="jboss/web"
+      licenseType="lgpl"
+      version="2.0.0.GA_CP08-brew"
+      description="JBoss Web 2.0.0.GA_CP08-brew"
+      scm=":ext:cvs.devel.redhat.com:/cvs/dist/jbossweb"
+      tag="jbossweb-2_0_0-6_CP08_0jpp_ep1_1_el4">
+      <!-- Built using JDK 5 -->
+      <artifact id="el-api.jar"/>
+      <artifact id="jasper-jdt.jar"/>
+      <artifact id="jbossweb.jar"/>
+      <artifact id="jbossweb-extras.jar"/>
+      <artifact id="jsp-api.jar"/>
+      <artifact id="servlet-api.jar"/>
+      <artifact id="jbossweb-src.zip"/>
+      <import componentref="apache-logging">
+         <compatible version="1.0.3"/>
+         <compatible version="1.0.4jboss"/>
+         <compatible version="1.0.4.1jboss"/>
+         <compatible version="1.0.5.GA-jboss"/>
+         <compatible version="1.0.5.SP1-jboss"/>
+         <compatible version="1.1.0.jboss"/>
+         <compatible version="1.1.0.jboss-brew"/>
+      </import>
+      <export>
+         <include input="el-api.jar"/>
+         <include input="jasper-jdt.jar"/>
+         <include input="jbossweb.jar"/>
+         <include input="jbossweb-extras.jar"/>
+         <include input="jsp-api.jar"/>
+         <include input="servlet-api.jar"/>
+      </export>
+   </component>
+
+</project>

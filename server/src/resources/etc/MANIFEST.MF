@@ -1,0 +1,2 @@
+Main-Class: org.jboss.portal.server.Main
+Class-Path: portal-common-lib.jar

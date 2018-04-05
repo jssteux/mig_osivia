@@ -1,0 +1,43 @@
+<project name="jboss-portal-portlet-component-info">
+   <component id="jboss-portal/modules/portlet"
+              licenseType="lgpl"
+              version="2.0.9"
+              projectHome="http://labs.jboss.com/jbossportal"
+              description="JBoss Portal portlet module libraries">
+      <artifact id="portal-portlet-federation-lib.jar"/>
+      <artifact id="portal-portlet-lib.jar"/>
+      <artifact id="portal-portlet-management-lib.jar"/>
+      <artifact id="portal-portlet-bridge-lib.jar"/>
+      <artifact id="portal-portlet-controller-lib.jar"/>
+      <artifact id="portal-portlet-samples-lib.jar"/>
+      <artifact id="portal-portlet-federation-lib-sources.jar"/>
+      <artifact id="portal-portlet-lib-sources.jar"/>
+      <artifact id="portal-portlet-management-lib-sources.jar"/>
+      <artifact id="portal-portlet-bridge-lib-sources.jar"/>
+      <artifact id="portal-portlet-controller-lib-sources.jar"/>
+      <artifact id="portal-portlet-samples-lib-sources.jar"/>
+      <import componentref="portals-bridges">
+         <compatible version="1.0.4"/>
+      </import>
+      <import componentref="jboss-portal/modules/common">
+         <compatible version="1.2.3"/>
+         <compatible version="1.2.4"/>
+         <compatible version="1.2.5"/>
+         <compatible version="trunk-SNAPSHOT"/>
+      </import>
+      <import componentref="jboss-portal/modules/web">
+         <compatible version="1.2.3"/>
+         <compatible version="1.2.4"/>
+         <compatible version="trunk-SNAPSHOT"/>
+      </import>
+      <export>
+         <include input="portal-portlet-federation-lib.jar"/>
+         <include input="portal-portlet-lib.jar"/>
+         <include input="portal-portlet-management-lib.jar"/>
+         <include input="portal-portlet-bridge-lib.jar"/>
+         <include input="portal-portlet-controller-lib.jar"/>
+         <include input="portal-portlet-samples-lib.jar"/>
+      </export>
+   </component>
+
+</project>

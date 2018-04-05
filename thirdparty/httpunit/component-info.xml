@@ -1,0 +1,15 @@
+<project name="httpunit-component-info">
+   <component id="httpunit"
+              licenseType="httpunit"
+              version="1.6"
+              projectHome="http://httpunit.sourceforge.net/index.html"
+              description="HttpUnit emulates the relevant portions of browser behavior">
+      <artifact id="httpunit.jar"/>
+      
+      <export>
+         <include input="httpunit.jar"/>
+         
+      </export>
+   </component>
+
+</project>

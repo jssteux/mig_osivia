@@ -1,0 +1,15 @@
+<project name="ehcache-component-info">
+
+   <component id="ehcache"
+              licenseType="ehcache"
+              version="1.2.2"
+              projectHome="http://ehcache.org/"
+              description="Simple caching">
+      <artifact id="ehcache.jar"/>
+      <export>
+         <include input="ehcache.jar"/>
+      </export>
+   </component>
+
+
+</project>

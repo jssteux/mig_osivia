@@ -1,0 +1,44 @@
+<project name="jakarta-cactus-component-info">
+
+   <component id="jakarta-cactus"
+      licenseType="apache-2.0"
+      version="1.7.2"
+      projectHome="http://jakarta.apache.org/cactus/"
+      description="simple test framework for unit testing server-side java code">
+
+      <artifact id="cactus.jar"/>
+      <artifact id="cactus-ant.jar"/>
+     
+      <import componentref="apache-logging">
+         <compatible version="1.0.3"/>
+         <compatible version="1.0.4jboss"/>
+         <compatible version="1.0.4.1jboss"/>
+         <compatible version="1.0.5.GA-jboss"/>
+         <compatible version="1.0.5.SP1-jboss"/>
+  	 <compatible version="1.0.5.SP1-jboss"/>
+	 <compatible version="1.1.0.jboss-brew"/>
+      </import>
+      <import componentref="apache-httpclient">
+         <compatible version="2.0.2"/>
+	 <compatible version="3.0.1"/>
+	 <compatible version="3.0.1-brew"/>
+      </import>
+      <import componentref="aspectj">
+         <compatible version="1.2.1"/>
+      </import>
+      
+      <import componentref="nekohtml">
+               <compatible version="0.9.1"/>
+      </import>
+      <import componentref="sun-servlet">
+         <compatible version="2.3"/>
+         <compatible version="2.4"/>
+         <compatible version="2.5-brew"/>
+      </import>
+
+      <export>
+         <include input="cactus.jar"/>
+         <include input="cactus-ant.jar"/>
+      </export>
+   </component>
+</project>

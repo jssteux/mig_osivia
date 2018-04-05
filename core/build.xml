@@ -1,0 +1,789 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2009, Red Hat Middleware, LLC, and individual
+  ~ contributors as indicated by the @authors tag. See the
+  ~ copyright.txt in the distribution for a full listing of
+  ~ individual contributors.
+  ~
+  ~ This is free software; you can redistribute it and/or modify it
+  ~ under the terms of the GNU Lesser General Public License as
+  ~ published by the Free Software Foundation; either version 2.1 of
+  ~ the License, or (at your option) any later version.
+  ~
+  ~ This software is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  ~ Lesser General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Lesser General Public
+  ~ License along with this software; if not, write to the Free
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<!DOCTYPE project [
+   <!ENTITY libraries  SYSTEM "../thirdparty/libraries.ent">
+   <!ENTITY buildmagic SYSTEM "../tools/etc/buildfragments/buildmagic.ent">
+   <!ENTITY tools      SYSTEM "../tools/etc/buildfragments/tools.ent">
+   <!ENTITY modules    SYSTEM "../tools/etc/buildfragments/modules.ent">
+   <!ENTITY defaults   SYSTEM "../tools/etc/buildfragments/defaults.ent">
+   <!ENTITY targets    SYSTEM "../tools/etc/buildfragments/targets.ent">
+   ]>
+
+<!--+======================================================================+-->
+<!--| JBoss Portal (The OpenSource Portal) Build File                      |-->
+<!--|                                                                      |-->
+<!--| Distributable under LGPL license.                                    |-->
+<!--| See terms of license at http://www.gnu.org.                          |-->
+<!--|                                                                      |-->
+<!--| This file has been designed to work with the 'tools' module and      |-->
+<!--| Buildmagic extentions.                                               |-->
+<!--+======================================================================+-->
+
+<project default="main" name="JBoss Portal">
+
+   <!--+====================================================================+-->
+   <!--| Setup                                                              |-->
+   <!--|                                                                    |-->
+   <!--| Include the common build elements.                                 |-->
+   <!--|                                                                    |-->
+   <!--| This defines several different targets, properties and paths.      |-->
+   <!--| It also sets up the basic extention tasks amoung other things.     |-->
+   <!--+====================================================================+-->
+
+   &buildmagic;
+   &modules;
+   &defaults;
+   &tools;
+   &targets;
+
+   <!-- ================================================================== -->
+   <!-- Initialization                                                     -->
+   <!-- ================================================================== -->
+
+   <!--
+      | Initialize the build system.  Must depend on '_buildmagic:init'.
+      | Other targets should depend on 'init' or things will mysteriously fail.
+    -->
+
+   <target name="init" unless="init.disable" depends="_buildmagic:init">
+   </target>
+
+   <!--+====================================================================+-->
+   <!--| Configuration                                                      |-->
+   <!--|                                                                    |-->
+   <!--| This target is invoked by the Buildmagic initialization logic      |-->
+   <!--| and should contain module specific configuration elements.         |-->
+   <!--+====================================================================+-->
+
+   <target name="configure" unless="configure.disable">
+
+      <!-- Configure some properties -->
+      <property name="jboss-junit-configuration" value=""/>
+      <property name="junit.formatter.usefile" value="true"/>
+
+      <!-- Configure thirdparty libraries -->
+      &libraries;
+
+      <path id="library.classpath">
+         <path refid="portlet.portlet.classpath"/>
+         <path refid="jboss.portal/modules/common.classpath"/>
+         <path refid="jboss.portal/modules/web.classpath"/>
+         <path refid="jboss.portal/modules/identity.classpath"/>
+         <path refid="jboss.portal/modules/portlet.classpath"/>
+         <path refid="jboss.portal/modules/test.classpath"/>
+         <path refid="jboss.microcontainer.classpath"/>
+         <path refid="jboss.jbossxb.classpath"/>
+         <path refid="jboss.cache.classpath"/>
+         <path refid="jbossas/core.libs.classpath"/>
+         <path refid="hibernate.hibernate.classpath"/>
+         <path refid="freemarker.freemarker.classpath"/>
+         <path refid="apache.ant.classpath"/>
+         <path refid="apache.log4j.classpath"/>
+         <path refid="junit.junit.classpath"/>
+         <path refid="sun.servlet.classpath"/>
+         <path refid="jakarta.cactus.classpath"/>
+         <path refid="apache.fileupload.classpath"/>
+         <path refid="jakarta.io.classpath"/>
+         <path refid="oswego.concurrent.classpath"/>
+         <path refid="glassfish.javamail.classpath"/>
+         <path refid="jwebunit.jwebunit.classpath"/>
+         <path refid="dbunit.dbunit.classpath"/>
+         <path refid="sun.jaf.classpath"/>
+         <path refid="portals.bridges.classpath"/>
+         <path refid="beanshell.beanshell.classpath"/>
+         <path refid="facelets.facelets.classpath"/>
+         <path refid="dom4j.dom4j.classpath"/>
+         <path refid="jboss.aop.classpath"/>
+         <path refid="trove.trove.classpath"/>
+         <path refid="qdox.qdox.classpath"/>
+         <pathelement location="${source.etc}/sun-jsf/jsf-example.jar"/>
+         <!-- jbpm integration -->
+         <path refid="jbpm.jpdl.classpath"/>
+         <path refid="sun.jaxb.classpath"/>
+      </path>
+
+      <!-- Configure modules -->
+      <call target="configure-modules"/>
+      <path id="dependentmodule.classpath">
+         <path refid="jboss.portal-server.classpath"/>
+         <path refid="jboss.portal-registration.classpath"/>
+         <path refid="jboss.portal-portlet-server.classpath"/>
+         <path refid="jboss.portal-jems.classpath"/>
+         <path refid="jboss.portal-jems.classpath"/>
+         <path refid="jboss.portal-api.classpath"/>
+         <path refid="jboss.portal-theme.classpath"/>
+         <path refid="jboss.portal-security.classpath"/>
+      </path>
+
+      <!--+=======================================+-->
+      <!--| Override any default properties here. |-->
+      <!--+=======================================+-->
+
+      <!-- Configure defaults & build tools -->
+      <call target="configure-defaults"/>
+      <call target="configure-tools"/>
+      <call target="configure-explode"/>
+      <call target="configure-jbossaop"/>
+
+      <!--+=======================================+-->
+      <!--| Define module specific elements here. |-->
+      <!--+=======================================+-->
+      <property name="javadoc.private" value="true"/>
+      <property name="javadoc.protected" value="false"/>
+
+      <path id="hibernate.classpath">
+         <path refid="apache.commons.classpath"/>
+         <path refid="asm.asm.classpath"/>
+         <path refid="cglib.cglib.classpath"/>
+         <path refid="antlr.antlr.classpath"/>
+         <path refid="odmg.odmg.classpath"/>
+         <path refid="ehcache.ehcache.classpath"/>
+         <path refid="hibernate.hibernate.classpath"/>
+      </path>
+
+      <path id="aop.classpath">
+         <pathelement path="${jbossas/core.libs.lib}/jboss-aspect-library.jar"/>
+         <pathelement path="${jboss.aop.lib}/jboss-aop.jar"/>
+         <path refid="javassist.javassist.classpath"/>
+         <path refid="oswego.concurrent.classpath"/>
+         <path refid="trove.trove.classpath"/>
+         <path refid="qdox.qdox.classpath"/>
+      </path>
+
+      <taskdef name="explode"
+               classname="org.jboss.portal.common.ant.Explode"
+               classpathref="explode.task.classpath"/>
+      <taskdef name="implode"
+               classname="org.jboss.portal.common.ant.Implode"
+               classpathref="explode.task.classpath"/>
+
+   </target>
+
+   <target name="configure-explode">
+      <path id="explode.task.classpath">
+         <pathelement location="${project.tools}/lib/explode.jar"/>
+         <path refid="apache.ant.classpath"/>
+      </path>
+      <taskdef
+         name="explode"
+         classname="org.jboss.portal.common.ant.Explode"
+         classpathref="explode.task.classpath"/>
+   </target>
+
+   <target name="configure-jbossaop">
+      <path id="jbossaop.task.classpath">
+         <path refid="jboss.aop.classpath"/>
+         <path refid="javassist.javassist.classpath"/>
+         <path refid="oswego.concurrent.classpath"/>
+         <path refid="trove.trove.classpath"/>
+         <path refid="qdox.qdox.classpath"/>
+      </path>
+      <taskdef
+         name="aopc"
+         classname="org.jboss.aop.ant.AopC"
+         classpathref="jbossaop.task.classpath"/>
+   </target>
+
+   <!--+====================================================================+-->
+   <!--| Compile                                                            |-->
+   <!--|                                                                    |-->
+   <!--| This target should depend on other compile-* targets for each      |-->
+   <!--| different type of compile that needs to be performed, short of     |-->
+   <!--| documentation compiles.                                            |-->
+   <!--+====================================================================+-->
+
+   <target name="compile"
+           description="Compile all source files."
+           depends="_default:compile-classes,
+                    _default:compile-etc,
+                    _default:compile-resources">
+      <!-- Add module specific elements here. -->
+
+
+      <path id="bilto">
+         <path refid="sun.servlet.classpath"/>
+         <path refid="apache.log4j.classpath"/>
+         <path refid="jbossas/core.libs.classpath"/>
+         <path refid="jboss.microcontainer.classpath"/>
+         <path refid="jboss.serialization.classpath"/>
+         <path refid="beanshell.beanshell.classpath"/>
+         <path refid="hibernate.classpath"/>
+         <path refid="jboss.portal/modules/common.classpath"/>
+         <path refid="jboss.portal/modules/web.classpath"/>
+         <path refid="jboss.portal/modules/portlet.classpath"/>
+         <path refid="jboss.portal/modules/identity.classpath"/>
+         <path refid="jboss.portal-server.classpath"/>
+         <path refid="jboss.portal-portlet-server.classpath"/>
+         <path refid="jboss.portal-security.classpath"/>
+         <path refid="jboss.portal-jems.classpath"/>
+         <pathelement path="${build.classes}"/>
+      </path>
+
+      <aopc
+         compilerclasspathref="aop.classpath"
+         verbose="true">
+         <classpath refid="bilto"/>
+         <src path="${build.classes}"/>
+         <aoppath path="${build.resources}/portal-core-sar/portal-aop.xml"/>
+         <aoppath path="${source.etc}/jboss-aop/base-aop.xml"/>
+         <include name="org/jboss/portal/core/aspects/server/TransactionInterceptor.class"/>
+         <include name="org/jboss/portal/core/aspects/server/UserInterceptor$UserFinalizer.class"/>
+         <include name="org/jboss/portal/core/aspects/portlet/TransactionInterceptor.class"/>
+         <include name="org/jboss/portal/core/deployment/jboss/ObjectDeployment.class"/>
+         <include name="org/jboss/portal/core/deployment/jboss/PortletAppDeployment.class"/>
+         <include name="org/jboss/portal/core/impl/model/instance/InstanceContainerImpl.class"/>
+         <include name="org/jboss/portal/core/impl/model/portal/PersistentPortalObjectContainer.class"/>
+         <include name="org/jboss/portal/core/impl/portlet/state/ProducerPortletInvoker.class"/>
+         <include name="org/jboss/portal/core/hibernate/SessionFactoryBinder.class"/>
+      </aopc>
+
+   </target>
+
+   <!--+====================================================================+-->
+   <!--| Generate Output                                                    |-->
+   <!--|                                                                    |-->
+   <!--| Generates the target output for this module. Target output is      |-->
+   <!--| the output which is ment to be released or used by external        |-->
+   <!--| modules.                                                           |-->
+   <!--+====================================================================+-->
+
+   <target name="artifacts"
+           description="Generate all target output."
+           depends="compile">
+
+      <mkdir dir="${build.lib}"/>
+
+      <!-- portal-core-lib.jar -->
+      <jar jarfile="${build.lib}/portal-core-lib.jar">
+         <fileset dir="${build.classes}">
+            <exclude name="org/jboss/portal/test/**"/>
+            <exclude name="org/jboss/portlet/**"/>
+         </fileset>
+      </jar>
+
+      <!-- jboss-portlet-api-lib.jar -->
+      <jar jarfile="${build.lib}/jboss-portlet-api-lib.jar">
+         <fileset dir="${build.classes}">
+            <include name="org/jboss/portlet/**"/>
+         </fileset>
+      </jar>
+
+      <!-- jboss-portal.sar -->
+      <copy todir="${build.resources}/jboss-portal">
+         <fileset dir="${build.resources}/portal-core-sar"/>
+      </copy>
+      <!-- portal-server.war -->
+      <copy todir="${build.resources}/jboss-portal/portal-server.war">
+         <fileset dir="${build.resources}/portal-server-war"/>
+         <fileset dir="${source.bin}/portal-server-war"/>
+      </copy>
+      <!-- portal-core.war -->
+      <copy todir="${build.resources}/jboss-portal/portal-core.war">
+         <fileset dir="${build.resources}/portal-core-war"/>
+         <fileset dir="${source.bin}/portal-core-war"/>
+      </copy>
+      <!-- portal-ajax.war -->
+      <copy todir="${build.resources}/jboss-portal/portal-ajax.war">
+         <fileset dir="${jboss.portal-theme.root}/resources/portal-ajax-war"/>
+      </copy>
+      <!-- hibernate configuration for identity -->
+      <copy todir="${build.resources}/jboss-portal/conf/hibernate/user">
+         <fileset dir="${jboss.portal/modules/identity.root}/resources/" includes="domain.hbm.xml"/>
+      </copy>
+      <copy todir="${build.resources}/jboss-portal/lib">
+         <fileset dir="${build.lib}" includes="portal-core-lib.jar"/>
+         <fileset dir="${build.lib}" includes="jboss-portlet-api-lib.jar"/>
+         <fileset dir="${jboss.portal/modules/common.lib}"
+                  includes="portal-common-lib.jar,portal-common-portal-lib.jar"/>
+         <fileset dir="${jboss.portal/modules/web.lib}" includes="portal-web-lib.jar"/>
+         <fileset dir="${jboss.portal/modules/portlet.lib}">
+            <include name="portal-portlet-lib.jar"/>
+            <include name="portal-portlet-federation-lib.jar"/>
+            <include name="portal-portlet-management-lib.jar"/>
+            <include name="portal-portlet-bridge-lib.jar"/>
+            <include name="portal-portlet-controller-lib.jar"/>
+         </fileset>
+         <fileset dir="${portlet.portlet.lib}" includes="portlet-api.jar"/>
+         <fileset dir="${jboss.portal/modules/identity.root}/lib" includes="portal-identity-lib.jar"/>
+         <fileset dir="${jboss.portal/modules/identity.root}/lib" includes="portal-identity-sso-lib.jar"/>
+         <fileset dir="${jboss.portal-server.root}/lib" includes="portal-server-lib.jar"/>
+         <fileset dir="${jboss.portal-portlet-server.root}/lib" includes="portal-portlet-server-lib.jar"/>
+         <fileset dir="${jboss.portal-jems.root}/lib" includes="portal-jems-lib.jar"/>
+         <fileset dir="${jboss.portal-api.root}/lib" includes="portal-api-lib.jar"/>
+         <fileset dir="${jboss.portal-theme.root}/lib" includes="portal-theme-lib.jar"/>
+         <fileset dir="${jboss.portal-security.root}/lib" includes="portal-security-lib.jar"/>
+         <fileset dir="${jboss.portal-registration.root}/lib" includes="portal-registration-lib.jar"/>
+         <fileset dir="${ehcache.ehcache.lib}" includes="ehcache.jar"/>
+         <fileset dir="${apache.collections.lib}" includes="commons-collections.jar"/>
+         <fileset dir="${apache.fileupload.lib}" includes="commons-fileupload.jar"/>
+         <fileset dir="${jakarta.io.lib}" includes="commons-io.jar"/>
+         <fileset dir="${freemarker.freemarker.lib}" includes="freemarker.jar"/>
+         <fileset dir="${portals.bridges.lib}" includes="portals-bridges-common.jar"/>
+         <fileset dir="${tagsoup.tagsoup.lib}" includes="tagsoup.jar"/>
+         <fileset dir="${jbpm.jpdl.lib}" includes="jbpm-jpdl.jar,jbpm-identity.jar"/>
+      </copy>
+
+      <copy todir="${build.resources}/jboss-portal/lib" failonerror="false">
+         <fileset dir="${jboss.portal-search.root}/lib" includes="portal-search-lib.jar"/>
+         <fileset dir="${jboss.portal-workflow.root}/lib" includes="portal-workflow-lib.jar"/>
+      </copy>
+
+      <!--dtd-->
+      <copy todir="${build.resources}/jboss-portal/dtd">
+         <fileset dir="${jboss.portal/modules/identity.root}/resources/dtd" includes="*.dtd"/>
+      </copy>
+
+   </target>
+
+
+   <target name="explode" depends="init">
+      <explode
+         file="${build.lib}/jboss-portal.sar"
+         todir="${build.lib}"
+         name="jboss-portal-exploded.sar"
+         />
+   </target>
+
+   <!-- Build the jboss-portal-ha.sar -->
+   <target name="output-ha" depends="artifacts">
+      <copy todir="${build.resources}/jboss-portal-ha.sar">
+         <fileset dir="${build.resources}/jboss-portal" excludes="**/*.xml"/>
+      </copy>
+
+      <copy todir="${build.resources}/jboss-portal-ha.sar">
+         <filterset>
+            <filtersfile file="../build/etc/clustered.properties"/>
+         </filterset>
+         <fileset dir="${build.resources}/jboss-portal" includes="**/*.xml"/>
+      </copy>
+   	
+   		<!-- add jboss-cache-hibernate integration jar -->
+   		<copy todir="${build.resources}/jboss-portal-ha.sar/lib">
+   			<fileset dir="${org/jboss/cluster/hibernate.jbc.cacheprovider.root}/lib" includes="hibernate-jbc-cacheprovider.jar"/>
+   	    </copy>
+
+      <implode
+         dir="${build.resources}/jboss-portal-ha.sar"
+         tofile="${build.lib}/jboss-portal-ha.sar"/>
+
+   </target>
+
+   <!-- Build the jboss-portal.sar -->
+   <target name="output" depends="artifacts">
+      <!-- Build configurations -->
+      <copy todir="${build.resources}/jboss-portal.sar">
+         <fileset dir="${build.resources}/jboss-portal" excludes="**/*.xml"/>
+      </copy>
+
+      <copy todir="${build.resources}/jboss-portal.sar">
+         <filterset>
+            <filtersfile file="../build/etc/single.properties"/>
+         </filterset>
+         <fileset dir="${build.resources}/jboss-portal" includes="**/*.xml"/>
+      </copy>
+      <!-- Build archives -->
+      <implode
+         dir="${build.resources}/jboss-portal.sar"
+         tofile="${build.lib}/jboss-portal.sar"/>
+   </target>
+
+   <!-- create artifacts for running the portlet tests (except TCK) target output should have already been executed -->
+   <target name="package-tests" depends="init">
+      <!-- portal-core-test-lib.jar -->
+      <jar jarfile="${build.lib}/portal-core-test-lib.jar">
+         <fileset dir="${build.classes}">
+            <include name="org/jboss/portal/test/**"/>
+         </fileset>
+         <fileset dir="${build.resources}/portal-core-test-jar"/>
+      </jar>
+   </target>
+
+   <target name="datasource" depends="init">
+      <copy file="${source.resources}/setup/portal-ds.xml" tofile="${build.resources}/setup/portal-hsqldb-ds.xml">
+         <filterset>
+            <filter token="portal.datasource.name" value="${portal.datasource.name}"/>
+            <filter token="portal.datasource.url" value="${hsqldb.portal.datasource.url}"/>
+            <filter token="portal.datasource.driver" value="${hsqldb.portal.datasource.driver}"/>
+            <filter token="portal.datasource.username" value="${hsqldb.portal.datasource.username}"/>
+            <filter token="portal.datasource.password" value="${hsqldb.portal.datasource.password}"/>
+         </filterset>
+      </copy>
+      <copy file="${source.resources}/setup/portal-ds.xml" tofile="${build.resources}/setup/portal-mysql-ds.xml">
+         <filterset>
+            <filter token="portal.datasource.name" value="${portal.datasource.name}"/>
+            <filter token="portal.datasource.url" value="${mysql.portal.datasource.url}"/>
+            <filter token="portal.datasource.driver" value="${mysql.portal.datasource.driver}"/>
+            <filter token="portal.datasource.username" value="${mysql.portal.datasource.username}"/>
+            <filter token="portal.datasource.password" value="${mysql.portal.datasource.password}"/>
+         </filterset>
+      </copy>
+      <copy file="${source.resources}/setup/portal-ds.xml" tofile="${build.resources}/setup/portal-mysql5-ds.xml">
+         <filterset>
+            <filter token="portal.datasource.name" value="${portal.datasource.name}"/>
+            <filter token="portal.datasource.url" value="${mysql5.portal.datasource.url}"/>
+            <filter token="portal.datasource.driver" value="${mysql5.portal.datasource.driver}"/>
+            <filter token="portal.datasource.username" value="${mysql5.portal.datasource.username}"/>
+            <filter token="portal.datasource.password" value="${mysql5.portal.datasource.password}"/>
+         </filterset>
+      </copy>
+      <copy file="${source.resources}/setup/portal-ds.xml" tofile="${build.resources}/setup/portal-oracle-ds.xml">
+         <filterset>
+            <filter token="portal.datasource.name" value="${portal.datasource.name}"/>
+            <filter token="portal.datasource.url" value="${oracle.portal.datasource.url}"/>
+            <filter token="portal.datasource.driver" value="${oracle.portal.datasource.driver}"/>
+            <filter token="portal.datasource.username" value="${oracle.portal.datasource.username}"/>
+            <filter token="portal.datasource.password" value="${oracle.portal.datasource.password}"/>
+         </filterset>
+      </copy>
+      <copy file="${source.resources}/setup/portal-ds.xml" tofile="${build.resources}/setup/portal-postgresql-ds.xml">
+         <filterset>
+            <filter token="portal.datasource.name" value="${portal.datasource.name}"/>
+            <filter token="portal.datasource.url" value="${postgresql.portal.datasource.url}"/>
+            <filter token="portal.datasource.driver" value="${postgresql.portal.datasource.driver}"/>
+            <filter token="portal.datasource.username" value="${postgresql.portal.datasource.username}"/>
+            <filter token="portal.datasource.password" value="${postgresql.portal.datasource.password}"/>
+         </filterset>
+      </copy>
+      <copy file="${source.resources}/setup/portal-ds.xml" tofile="${build.resources}/setup/portal-sqlserver-ds.xml">
+         <filterset>
+            <filter token="portal.datasource.name" value="${portal.datasource.name}"/>
+            <filter token="portal.datasource.url" value="${sqlserver.portal.datasource.url}"/>
+            <filter token="portal.datasource.driver" value="${sqlserver.portal.datasource.driver}"/>
+            <filter token="portal.datasource.username" value="${sqlserver.portal.datasource.username}"/>
+            <filter token="portal.datasource.password" value="${sqlserver.portal.datasource.password}"/>
+         </filterset>
+      </copy>
+   </target>
+
+   <!-- ================================================================== -->
+   <!-- Cleaning                                                           -->
+   <!-- ================================================================== -->
+
+   <!-- Clean up all build output -->
+   <target name="clean" depends="_default:clean">
+      <!-- Add module specific elements here. -->
+   </target>
+
+   <!--+====================================================================+-->
+   <!--| Documents                                                          |-->
+   <!--|                                                                    |-->
+   <!--| Generate all documentation for this module.                        |-->
+   <!--+====================================================================+-->
+
+   <target name="docs" depends="_default:docs">
+      <!-- Add module specific elements here. -->
+   </target>
+
+   <!-- ================================================================== -->
+   <!-- Misc.                                                              -->
+   <!-- ================================================================== -->
+
+   <target name="main" depends="most"/>
+   <target name="all" depends="_default:all"/>
+   <target name="most" depends="_default:most"/>
+   <target name="help" depends="_default:help"/>
+
+   <!-- ================================================================== -->
+   <!-- Deployment                                                         -->
+   <!-- ================================================================== -->
+
+   <!--
+      | Deploy the application
+    -->
+
+   <target name="deploy"
+           description="Deploy."
+           depends="output">
+      <require file="${jboss.home}/server/${portal.deploy.dir}"/>
+      <copy file="${build.lib}/jboss-portal.sar" todir="${jboss.home}/server/${portal.deploy.dir}" overwrite="true"/>
+   </target>
+
+   <target name="deploy-ha"
+           description="Deploy high availability."
+           depends="output-ha">
+      <require file="${jboss.home}/server/${portal-ha.deploy.dir}"/>
+      <copy file="${build.lib}/jboss-portal-ha.sar" todir="${jboss.home}/server/${portal-ha.deploy.dir}"/>
+   </target>
+
+   <!--
+      | Undeploy the application
+    -->
+   <target name="undeploy"
+           description="Undeploy."
+           depends="init">
+      <require file="${jboss.home}/server/${portal.deploy.dir}"/>
+      <delete file="${jboss.home}/server/${portal.deploy.dir}/jboss-portal.sar"/>
+   </target>
+
+   <target name="undeploy-ha"
+           description="Undeploy."
+           depends="init">
+      <require file="${jboss.home}/server/${portal-ha.deploy.dir}"/>
+      <delete file="${jboss.home}/server/${portal-ha.deploy.dir}/jboss-portal-ha.sar"/>
+   </target>
+
+   <target name="tests" depends="init, _buildmagic:configure:deployment">
+      <antcall target="test-blah"/>
+   </target>
+
+   <target name="test-blah" depends="init">
+      <execute-tests>
+         <x-sysproperty>
+
+                        <!--<jvmarg value="-Xdebug"/>-->
+                        <!--<jvmarg value="-Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=y"/>-->
+
+            <sysproperty
+               key="jboss.aop.path"
+               value="${build.resources}/jboss-portal.sar/portal-aop.xml${path.separator}${source.etc}/jboss-aop/base-aop.xml"/>
+            <sysproperty
+               key="jboss.aop.class.path"
+               value="${jbossas/core.libs.lib}/jboss-aspect-library.jar"/>
+
+         </x-sysproperty>
+         <x-test>
+            <zest todir="${test.reports}" name="org.jboss.portal.test.core.model.portal.PortalNodeTestCase"
+                  outfile="TEST-PortalNodeTestCase">
+               <parameter name="CacheNaturalId" value="true"/>
+               <parameter name="Config" value="persistent-jboss-beans.xml"/>
+                </zest>
+        <!--
+            <zest todir="${test.reports}" name="org.jboss.portal.test.core.model.portal.PortalNodeTestCase"
+                  outfile="TEST-PortalObjectContainerTestCase">
+               <parameter name="CacheNaturalId" value="true"/>
+               <parameter name="Config" value="transient-jboss-beans.xml"/>
+            </zest>
+            -->
+            <zest todir="${test.reports}" name="org.jboss.portal.test.core.model.portal.PortalObjectContainerTestCase"
+                  outfile="TEST-PortalObjectContainerTestCase">
+               <parameter name="CacheNaturalId" value="true"/>
+               <parameter name="Config" value="persistent-jboss-beans.xml"/>
+            </zest>
+            <zest todir="${test.reports}" name="org.jboss.portal.test.core.model.portal.PortalObjectTestCase"
+                  outfile="TEST-PortalObjectTestCase">
+               <parameter name="CacheNaturalId" value="true"/>
+               <parameter name="Config" value="persistent-jboss-beans.xml"/>
+            </zest>
+            <zest todir="${test.reports}" name="org.jboss.portal.test.core.model.portal.coordination.CoordinationServiceTestCase"
+                  outfile="TEST-CoordinationServiceTestCase">
+               <parameter name="CacheNaturalId" value="true"/>
+               <parameter name="Config" value="persistent-jboss-beans.xml"/>
+            </zest>
+            <!--
+            <zest todir="${test.reports}" name="org.jboss.portal.test.core.model.portal.PortalObjectContainerTestCase"
+                  outfile="TEST-PortalObjectContainerTestCase">
+               <parameter name="CacheNaturalId" value="true"/>
+               <parameter name="Config" value="transient-jboss-beans.xml"/>
+            </zest>
+            -->
+            <zest todir="${test.reports}" name="org.jboss.portal.test.core.model.instance.InstanceContainerTestCase"
+                  outfile="TEST-PersistedLocally-ClonedOnCreate-InstanceContainerTestCase">
+               <parameter name="PersistLocally" value="true"/>
+               <parameter name="CloneOnCreate" value="true"/>
+               <parameter name="CacheNaturalId" value="true"/>
+               <parameter name="Config" value="persistent-jboss-beans.xml"/>
+            </zest>
+            <zest todir="${test.reports}" name="org.jboss.portal.test.core.model.instance.InstanceContainerTestCase"
+                  outfile="TEST-NotPersistedLocally-ClonedOnCreate-InstanceContainerTestCase">
+               <parameter name="PersistLocally" value="false"/>
+               <parameter name="CloneOnCreate" value="true"/>
+               <parameter name="CacheNaturalId" value="true"/>
+               <parameter name="Config" value="persistent-jboss-beans.xml"/>
+            </zest>
+            <zest todir="${test.reports}" name="org.jboss.portal.test.core.model.instance.InstanceContainerTestCase"
+                  outfile="TEST-PersistedLocally-NotClonedOnCreate-InstanceContainerTestCase">
+               <parameter name="PersistLocally" value="true"/>
+               <parameter name="CloneOnCreate" value="false"/>
+               <parameter name="CacheNaturalId" value="true"/>
+               <parameter name="Config" value="persistent-jboss-beans.xml"/>
+            </zest>
+            <zest todir="${test.reports}" name="org.jboss.portal.test.core.model.instance.InstanceContainerTestCase"
+                  outfile="TEST-NotPersistedLocally-NotClonedOnCreate-InstanceContainerTestCase">
+               <parameter name="PersistLocally" value="false"/>
+               <parameter name="CloneOnCreate" value="false"/>
+               <parameter name="CacheNaturalId" value="true"/>
+               <parameter name="Config" value="persistent-jboss-beans.xml"/>
+            </zest>
+
+            <!--
+            <zest todir="${test.reports}" name="org.jboss.portal.test.core.model.instance.InstanceContainerTestCase"
+                  outfile="TEST-PersistedLocally-ClonedOnCreate-InstanceContainerTestCase">
+               <parameter name="PersistLocally" value="true"/>
+               <parameter name="CloneOnCreate" value="true"/>
+               <parameter name="CacheNaturalId" value="true"/>
+               <parameter name="Config" value="transient-jboss-beans.xml"/>
+            </zest>
+            -->
+            <zest todir="${test.reports}" name="org.jboss.portal.test.core.state.ProducerTestCase"
+                  outfile="TEST-ProducerTestCase-WithoutRegistration">
+               <parameter name="UseRegistration" value="false"/>
+            </zest>
+            <zest todir="${test.reports}" name="org.jboss.portal.test.core.state.ProducerTestCase"
+                  outfile="TEST-ProducerTestCase-WithRegistration">
+               <parameter name="UseRegistration" value="true"/>
+            </zest>
+            <zest todir="${test.reports}" name="org.jboss.portal.test.core.state.RegistrationPersistenceManagerTestCase"
+                  outfile="TEST-RegistrationPersistenceManagerTestCase">
+            </zest>
+
+            <test todir="${test.reports}"
+                  name="org.jboss.portal.test.core.model.portal.PortalObjectPermissionTestCase"/>
+            <test todir="${test.reports}"
+                  name="org.jboss.portal.test.core.deployment.PortletInstancesMetaDataFactoryTestCase"/>
+            <test todir="${test.reports}"
+                  name="org.jboss.portal.test.core.deployment.JBossApplicationMetaDataFactoryTestCase"/>
+            <test todir="${test.reports}"
+                  name="org.jboss.portal.test.core.model.portal.PortalObjectIdTestCase"/>
+            <test todir="${test.reports}"
+                  name="org.jboss.portal.test.core.model.portal.PortalObjectPathTestCase"/>
+            <test todir="${test.reports}"
+                  name="org.jboss.portal.test.core.portlet.PortletRequestDecoderTestCase"/>
+            <test todir="${test.reports}"
+                  name="org.jboss.portal.test.core.portlet.PortletRequestEncoderTestCase"/>
+
+         </x-test>
+         <x-classpath>
+            <pathelement location="${build.lib}/portal-core-lib.jar"/>
+            <pathelement location="${build.lib}/portal-core-test-lib.jar"/>
+            <pathelement location="${build.resources}/jboss-portal.sar"/>
+            <pathelement location="${jboss.portal/modules/test.resources}"/>
+            <pathelement location="${build.resources}"/>
+
+            <path refid="apache.collections.classpath"/>
+            <path refid="apache.logging.classpath"/>
+            <path refid="apache.xerces.classpath"/>
+            <path refid="jboss.jbossxb.classpath"/>
+            <path refid="oswego.concurrent.classpath"/>
+            <path refid="jboss.microcontainer.classpath"/>
+            <path refid="apache.httpclient.classpath"/>
+            <path refid="aop.classpath"/>
+            <path refid="dom4j.dom4j.classpath"/>
+            <path refid="cglib.cglib.classpath"/>
+            <path refid="antlr.antlr.classpath"/>
+            <path refid="asm.asm.classpath"/>
+
+            <path refid="library.classpath"/>
+            <path refid="dependentmodule.classpath"/>
+            <pathelement location="${nekohtml.nekohtml.lib}/nekohtml.jar"/>
+            <pathelement location="${dbunit.dbunit.lib}/dbunit.jar"/>
+            <pathelement location="${jdbc.connectors.lib}/mysql-connector-java.jar"/>
+            <!--<pathelement location="postgresql-8.1-407.jdbc3.jar"/>-->
+         </x-classpath>
+      </execute-tests>
+   </target>
+
+   <!--
+   Run a single unit test.
+   ant -Dtest=org.jboss.portal.test.core.model.portal.PortalObjectContainerTestCase one-test
+   -->
+   <target name="one-test" depends="init" if="test" description="Run a single unit test">
+      <property name="build.testlog" value="${module.output}/log"/>
+      <property name="test.reports" value="${module.output}/tests"/>
+
+      <mkdir dir="${build.reports}"/>
+      <mkdir dir="${build.testlog}"/>
+      <mkdir dir="${test.reports}"/>
+
+      <junit printsummary="yes" showoutput="yes" dir="${module.output}">
+         <!--jvmarg line="-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5006" /-->
+
+         <sysproperty key="build.testlog" value="${build.testlog}"/>
+         <sysproperty key="build.resources" value="${build.resources}"/>
+
+         <classpath>
+            <path refid="apache.xerces.classpath"/>
+            <path refid="jboss.jbossxb.classpath"/>
+            <pathelement location="${build.lib}/portal-core-lib.jar"/>
+            <pathelement location="${build.lib}/portal-core-test-lib.jar"/>
+            <pathelement location="${build.resources}/portal-core-sar"/>
+            <pathelement location="${jboss.portal/modules/test.resources}"/>
+            <path refid="oswego.concurrent.classpath"/>
+            <path refid="jboss.microcontainer.classpath"/>
+
+            <pathelement location="${jboss.home}/lib/dom4j.jar"/>
+            <pathelement location="${jboss.home}/server/default/lib/hsqldb.jar"/>
+            <pathelement location="${jboss.home}/server/default/lib/cglib-2.1_2jboss.jar"/>
+            <pathelement location="${jboss.home}/server/default/lib/asm.jar"/>
+
+            <path refid="library.classpath"/>
+            <path refid="dependentmodule.classpath"/>
+            <pathelement location="${nekohtml.nekohtml.lib}/nekohtml.jar"/>
+            <pathelement location="${dbunit.dbunit.lib}/dbunit.jar"/>
+            <pathelement location="${jdbc.connectors.lib}/mysql-connector-java.jar"/>
+         </classpath>
+
+
+         <formatter type="plain" usefile="true"/>
+         <formatter type="xml" usefile="true"/>
+
+         <test todir="${test.reports}" name="${test}" fork="true"/>
+
+      </junit>
+   </target>
+
+   <target name="reports" depends="init">
+      <mkdir dir="${build.reports}"/>
+      <property name="test.reports" value="${module.output}/tests"/>
+      <junitreport todir="${build.reports}">
+         <fileset dir="${test.reports}">
+            <include name="TEST-*.xml"/>
+         </fileset>
+         <report format="frames" todir="${build.reports}/html"/>
+      </junitreport>
+   </target>
+
+   <!--
+   		Some convenience build targets to help deployment during development
+   -->
+   <target name="deploy-explode" depends="output,explode">
+      <require file="${jboss.home}/server/${portal.deploy.dir}"/>
+      <copy todir="${jboss.home}/server/${portal.deploy.dir}/jboss-portal.sar" overwrite="true">
+         <fileset dir="${build.lib}/jboss-portal-exploded.sar"/>
+      </copy>
+   </target>
+   <target name="explode-ha" depends="init">
+      <explode
+         file="${build.lib}/jboss-portal-ha.sar"
+         todir="${build.lib}"
+         name="jboss-portal-ha-exploded.sar"
+         />
+   </target>
+   <target name="deploy-ha-explode" description="Deploy high availability." depends="output-ha,explode-ha">
+      <require file="${jboss.home}/server/${portal-ha.deploy.dir}"/>
+      <copy todir="${jboss.home}/server/${portal-ha.deploy.dir}/jboss-portal-ha.sar" overwrite="true">
+         <fileset dir="${build.lib}/jboss-portal-ha-exploded.sar"/>
+      </copy>
+   </target>
+
+   <target name="deploy-ha-explode-dev" description="Deploy high availability." depends="output-ha,explode-ha">
+      <require file="${jboss.home}/server/${portal-ha.deploy.dir}"/>
+      <copy todir="${jboss.home}/server/${portal-ha.deploy.dir}/jboss-portal-ha.sar" overwrite="true">
+         <fileset dir="${build.lib}/jboss-portal-ha-exploded.sar"/>
+      </copy>
+      <copy todir="${jboss.home}/server/${portal-ha.node2.deploy.dir}/jboss-portal-ha.sar" overwrite="true">
+         <fileset dir="${build.lib}/jboss-portal-ha-exploded.sar"/>
+      </copy>
+   </target>
+</project>

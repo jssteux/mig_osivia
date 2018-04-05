@@ -1,0 +1,21 @@
+<project name="ibm-wsdl4j-component-info">
+
+   <!-- ============================================================ -->
+   <!-- IBM WSDL4J                                                   -->
+   <!-- ============================================================ -->
+
+   <component id="ibm-wsdl4j"
+           version="1.6.2"
+            licenseType="cpl-1.0"
+            projectHome="http://sourceforge.net/projects/wsdl4j"
+            description="Web Services Description Language for Java Toolkit"
+      >
+      <artifact id="wsdl4j.jar"/>
+      <artifact id="wsdl4j-src.jar"/>
+      <export>
+         <include input="wsdl4j.jar"/>
+      </export>
+   </component>
+
+
+</project>

@@ -1,0 +1,16 @@
+<project name="bridges-component-info">
+   <component id="portals-bridges"
+              licenseType="apache-2.0"
+              version="1.0.4"
+              projectHome="http://portals.apache.org/bridges/index.html"
+              description="support for JSR-168 compliant Portlet development using common web frameworks like Struts, JSF, PHP, Perl and Velocity">
+      <artifact id="portals-bridges-common.jar"/>
+      <artifact id="portals-bridges-struts.jar"/>
+      
+      <export>
+         <include input="portals-bridges-common.jar"/>
+         <include input="portals-bridges-struts.jar"/> 
+      </export>
+   </component>
+
+</project>

@@ -1,0 +1,85 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ JBoss, a division of Red Hat                                              ~
+  ~ Copyright 2006, Red Hat Middleware, LLC, and individual                   ~
+  ~ contributors as indicated by the @authors tag. See the                    ~
+  ~ copyright.txt in the distribution for a full listing of                   ~
+  ~ individual contributors.                                                  ~
+  ~                                                                           ~
+  ~ This is free software; you can redistribute it and/or modify it           ~
+  ~ under the terms of the GNU Lesser General Public License as               ~
+  ~ published by the Free Software Foundation; either version 2.1 of          ~
+  ~ the License, or (at your option) any later version.                       ~
+  ~                                                                           ~
+  ~ This software is distributed in the hope that it will be useful,          ~
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of            ~
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU          ~
+  ~ Lesser General Public License for more details.                           ~
+  ~                                                                           ~
+  ~ You should have received a copy of the GNU Lesser General Public          ~
+  ~ License along with this software; if not, write to the Free               ~
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA        ~
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.                  ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<server>
+
+   <!-- Server configuration service -->
+   <mbean
+      code="org.jboss.portal.server.config.ServerConfigService"
+      name="portal:service=ServerConfig"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <attribute name="ConfigLocation">conf/config.xml</attribute>
+   </mbean>
+
+   <!-- Runtime context for running portlet container -->
+   <mbean
+      code="org.jboss.portal.web.jboss.JBossWebContext"
+      name="portal:service=ServletContainerFactory"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+   </mbean>
+
+   <!-- Server -->
+   <mbean
+      code="org.jboss.portal.server.impl.ServerImpl"
+      name="portal:service=Server"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="Config" proxy-type="attribute">portal:service=ServerConfig</depends>
+      <depends optional-attribute-name="ServletContainerFactory" proxy-type="attribute">portal:service=ServletContainerFactory</depends>
+   </mbean>
+
+   <!-- Server deployer -->
+   <mbean
+      code="org.jboss.portal.server.deployment.jboss.ServerDeployer"
+      name="portal:deployer=PortalWebApp">
+      <depends>jboss.system:service=MainDeployer</depends>
+      <depends optional-attribute-name="PortalServer" proxy-type="attribute">portal:service=Server</depends>
+   </mbean>
+
+   <!--  Adapt the web app to the server deployer -->
+   <mbean
+      code="org.jboss.portal.server.deployment.WebAppAdapter"
+      name="portal:deployer=Adapter"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="Deployer" proxy-type="attribute">portal:deployer=PortalWebApp</depends>
+      <depends optional-attribute-name="InterceptedDeployer">jboss.web:service=WebServer</depends>
+   </mbean>
+
+   <!-- Web app enhancer -->
+   <mbean
+      code="org.jboss.portal.server.deployment.WebAppEnhancer"
+      name="portal:service=Deployer,type=Enhancer"
+      xmbean-dd=""
+      xmbean-code="org.jboss.portal.jems.as.system.JBossServiceModelMBean">
+      <xmbean/>
+      <depends optional-attribute-name="InterceptedDeployer">jboss.web:service=WebServer</depends>
+   </mbean>
+
+</server>

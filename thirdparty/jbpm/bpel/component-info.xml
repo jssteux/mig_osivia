@@ -1,0 +1,40 @@
+<project name="jbpm/bpel-component-info">
+
+   <component id="jbpm/bpel"
+              licenseType="cpl-1.0"
+              version="1.1.0.GA"
+              projectHome="http://jbpm.org/"
+              description="Web services orchestration platform">
+
+      <artifact id="jbpm-bpel.jar"/>
+      <artifact id="jbpm-bpel-config.jar"/>
+      <artifact id="jbpm-bpel-jbossws4ee.jar"/>
+      <artifact id="jbpm-bpel-jbossws10.jar"/>
+      <artifact id="jbpm-bpel-jbossws12.jar"/>
+      <artifact id="jbpm-bpel-tools.jar"/>
+      <artifact id="jbpm-bpel.war"/>
+      <artifact id="jbpm-bpel.sar"/>
+
+      <import componentref="apache-lang">
+         <compatible version="2.1"/>
+         <compatible version="2.1-brew"/>
+      </import>
+      <import componentref="jaxen">
+         <compatible version="1.1-beta-9"/>
+         <compatible version="1.1-beta-10"/>
+         <compatible version="1.1-brew"/>
+      </import>
+      <import componentref="jbpm/jpdl">
+        <compatible version="3.2.0.Beta2"/>
+        <compatible version="3.2.GA"/>
+        <compatible version="3.2.2"/>
+        <compatible version="3.2.5.SP5"/>
+      </import>
+
+      <export>
+        <include input="jbpm-bpel.jar"/>
+      </export>
+
+   </component>
+
+</project>

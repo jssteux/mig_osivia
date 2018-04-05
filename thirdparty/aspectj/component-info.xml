@@ -1,0 +1,14 @@
+<project name="aspectj-component-info">
+   <component id="aspectj"
+              licenseType="cpl-1.0"
+              version="1.2.1"
+              projectHome="http://www.eclipse.org/aspectj/"
+              description="seamless aspect-oriented extension to the Java">
+      <artifact id="aspectjrt.jar"/>
+      
+      <export>
+         <include input="aspectjrt.jar"/>         
+      </export>
+   </component>
+
+</project>

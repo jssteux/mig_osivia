@@ -1,0 +1,19 @@
+<project name="jakarta-io-component-info">
+
+   <component id="jakarta-io"
+      licenseType="apache-2.0"
+      version="1.0"
+      projectHome="http://jakarta.apache.org/commons/io/"
+      description="Commons IO is a library of utilities to assist with developing IO functionality">
+
+      <artifact id="commons-io.jar"/>
+      
+      
+      <export>
+         <include input="commons-io.jar"/>
+         
+      </export>
+   </component>
+
+</project>
+

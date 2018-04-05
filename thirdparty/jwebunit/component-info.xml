@@ -1,0 +1,16 @@
+<project name="jwebunit-component-info">
+
+   <component id="jwebunit"
+              licenseType="bsd"
+              version="1.2"
+              projectHome="http://jwebunit.sourceforge.net/index.html"
+         description="Java framework that facilitates creation of acceptance tests for web applications">
+
+      <artifact id="jwebunit-1.2.jar"/>
+      
+      <export>
+         <include input="jwebunit-1.2.jar"/>
+      </export>
+   </component>
+
+</project>

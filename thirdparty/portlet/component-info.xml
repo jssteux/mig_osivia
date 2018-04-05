@@ -1,0 +1,14 @@
+<project name="jboss-portal-portlet-component-info">
+   <!-- build from SVN revision 8213 -->
+   <component id="portlet"
+              licenseType=""
+              version="2.0-Draft32"
+              projectHome="http://www.jcp.org/en/jsr/detail?id=286"
+              description="JSR-286 API">
+      <artifact id="portlet-api.jar"/>
+      <export>
+         <include input="portlet-api.jar"/>
+      </export>
+   </component>
+
+</project>

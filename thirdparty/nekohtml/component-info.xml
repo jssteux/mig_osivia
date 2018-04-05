@@ -1,0 +1,14 @@
+<project name="nekohtml-component-info">
+   <component id="nekohtml"
+              licenseType="nekohtml"
+              version="0.9.1"
+              projectHome="http://people.apache.org/~andyc/neko/doc/html//"
+              description="a simple HTML scanner and tag balancer">
+      <artifact id="nekohtml.jar"/>
+      
+      <export>
+         <include input="nekohtml.jar"/>         
+      </export>
+   </component>
+
+</project>

@@ -1,0 +1,530 @@
+
+configure:
+
+configure-modules:
+
+configure-defaults:
+
+configure-tools:
+
+_configure:jbossaop:task:
+
+_configure:xdoclet:task:
+
+_configure:xdoclet:ejbdoclet:
+
+_configure:xdoclet:jmxdoclet:
+
+configure-explode:
+
+configure-jbossaop:
+
+_default:compile-classes:
+    [javac] Compiling 387 source files to /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/output/classes
+    [javac] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/src/main/org/jboss/portal/core/impl/portlet/state/ValueManager.java:25: warning: [deprecation] org.jboss.portal.common.value.BooleanValue in org.jboss.portal.common.value has been deprecated
+    [javac] import org.jboss.portal.common.value.BooleanValue;
+    [javac]                                     ^
+    [javac] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/src/main/org/jboss/portal/core/impl/portlet/state/ValueManager.java:26: warning: [deprecation] org.jboss.portal.common.value.FloatValue in org.jboss.portal.common.value has been deprecated
+    [javac] import org.jboss.portal.common.value.FloatValue;
+    [javac]                                     ^
+    [javac] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/src/main/org/jboss/portal/core/impl/portlet/state/ValueManager.java:27: warning: [deprecation] org.jboss.portal.common.value.IntegerValue in org.jboss.portal.common.value has been deprecated
+    [javac] import org.jboss.portal.common.value.IntegerValue;
+    [javac]                                     ^
+    [javac] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/src/main/org/jboss/portal/core/impl/portlet/state/ValueManager.java:28: warning: [deprecation] org.jboss.portal.common.value.StringValue in org.jboss.portal.common.value has been deprecated
+    [javac] import org.jboss.portal.common.value.StringValue;
+    [javac]                                     ^
+    [javac] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/src/main/org/jboss/portal/core/impl/portlet/state/ValueManager.java:29: warning: [deprecation] org.jboss.portal.common.value.Value in org.jboss.portal.common.value has been deprecated
+    [javac] import org.jboss.portal.common.value.Value;
+    [javac]                                     ^
+    [javac] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/src/main/org/jboss/portal/core/impl/portlet/state/ValueManager.java:52: warning: [deprecation] org.jboss.portal.common.value.Value in org.jboss.portal.common.value has been deprecated
+    [javac]    public static Value toValue(TypedStringArray tsa)
+    [javac]                  ^
+    [javac] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/src/main/org/jboss/portal/core/impl/portlet/state/ValueManager.java:67: warning: [deprecation] org.jboss.portal.common.value.Value in org.jboss.portal.common.value has been deprecated
+    [javac]    public static TypedStringArray toTypedStringArray(Value value)
+    [javac]                                                      ^
+    [javac] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/src/main/org/jboss/portal/test/core/model/instance/ValueMapAssert.java:26: warning: [deprecation] org.jboss.portal.common.value.Value in org.jboss.portal.common.value has been deprecated
+    [javac] import org.jboss.portal.common.value.Value;
+    [javac]                                     ^
+    [javac] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/src/main/org/jboss/portal/core/deployment/jboss/PortletAppDeployment.java:149: warning: [deprecation] toURL() in java.io.File has been deprecated
+    [javac]             URL webInfURL = webInfFile.toURL();
+    [javac]                                       ^
+    [javac] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/src/main/org/jboss/portal/core/impl/portlet/state/ValueManager.java:57: warning: [deprecation] org.jboss.portal.common.value.IntegerValue in org.jboss.portal.common.value has been deprecated
+    [javac]             return new IntegerValue(tsa.getStrings());
+    [javac]                        ^
+    [javac] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/src/main/org/jboss/portal/core/impl/portlet/state/ValueManager.java:59: warning: [deprecation] org.jboss.portal.common.value.BooleanValue in org.jboss.portal.common.value has been deprecated
+    [javac]             return new BooleanValue(tsa.getStrings());
+    [javac]                        ^
+    [javac] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/src/main/org/jboss/portal/core/impl/portlet/state/ValueManager.java:61: warning: [deprecation] org.jboss.portal.common.value.FloatValue in org.jboss.portal.common.value has been deprecated
+    [javac]             return new FloatValue(tsa.getStrings());
+    [javac]                        ^
+    [javac] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/src/main/org/jboss/portal/core/impl/portlet/state/ValueManager.java:63: warning: [deprecation] org.jboss.portal.common.value.StringValue in org.jboss.portal.common.value has been deprecated
+    [javac]             return new StringValue(tsa.getStrings());
+    [javac]                        ^
+    [javac] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/src/main/org/jboss/portal/test/core/model/instance/InstanceContainerTestCase.java:92: warning: [deprecation] getRoot() in org.apache.log4j.Category has been deprecated
+    [javac]       Logger.getRoot().addAppender(appender);
+    [javac]             ^
+    [javac] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/src/main/org/jboss/portal/test/core/model/instance/InstanceContainerTestCase.java:93: warning: [deprecation] getRoot() in org.apache.log4j.Category has been deprecated
+    [javac]       Logger.getRoot().setLevel(Level.ERROR);
+    [javac]             ^
+    [javac] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/src/main/org/jboss/portal/test/core/model/portal/PortalObjectPathTestCase.java:236: warning: [deprecation] toArray(java.util.Iterator) in org.jboss.portal.common.util.Tools has been deprecated
+    [javac]       ExtendedAssert.assertEquals(new Object[]{}, Tools.toArray(new PortalObjectPath(new String[]{}).names()));
+    [javac]                                                        ^
+    [javac] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/src/main/org/jboss/portal/test/core/model/portal/PortalObjectPathTestCase.java:237: warning: [deprecation] toArray(java.util.Iterator) in org.jboss.portal.common.util.Tools has been deprecated
+    [javac]       ExtendedAssert.assertEquals(new Object[]{"a"}, Tools.toArray(new PortalObjectPath(new String[]{"a"}).names()));
+    [javac]                                                           ^
+    [javac] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/src/main/org/jboss/portal/test/core/model/portal/PortalObjectPathTestCase.java:238: warning: [deprecation] toArray(java.util.Iterator) in org.jboss.portal.common.util.Tools has been deprecated
+    [javac]       ExtendedAssert.assertEquals(new Object[]{"a", "b"}, Tools.toArray(new PortalObjectPath(new String[]{"a", "b"}).names()));
+    [javac]                                                                ^
+    [javac] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/src/main/org/jboss/portal/test/core/model/portal/coordination/CoordinationServiceTestCase.java:64: warning: [deprecation] getRoot() in org.apache.log4j.Category has been deprecated
+    [javac]       Logger.getRoot().addAppender(appender);
+    [javac]             ^
+    [javac] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/src/main/org/jboss/portal/test/core/model/portal/coordination/CoordinationServiceTestCase.java:65: warning: [deprecation] getRoot() in org.apache.log4j.Category has been deprecated
+    [javac]       Logger.getRoot().setLevel(Level.ERROR);
+    [javac]             ^
+    [javac] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/src/main/org/jboss/portal/test/core/state/ProducerTestCase.java:90: warning: [deprecation] getRoot() in org.apache.log4j.Category has been deprecated
+    [javac]       Logger.getRoot().addAppender(appender);
+    [javac]             ^
+    [javac] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/src/main/org/jboss/portal/test/core/state/ProducerTestCase.java:91: warning: [deprecation] getRoot() in org.apache.log4j.Category has been deprecated
+    [javac]       Logger.getRoot().setLevel(Level.DEBUG);
+    [javac]             ^
+    [javac] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/src/main/org/jboss/portal/test/core/state/RegistrationPersistenceManagerTestCase.java:54: warning: [deprecation] getRoot() in org.apache.log4j.Category has been deprecated
+    [javac]       Logger.getRoot().addAppender(appender);
+    [javac]             ^
+    [javac] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/src/main/org/jboss/portal/test/core/state/RegistrationPersistenceManagerTestCase.java:55: warning: [deprecation] getRoot() in org.apache.log4j.Category has been deprecated
+    [javac]       Logger.getRoot().setLevel(Level.DEBUG);
+    [javac]             ^
+    [javac] Note: Some input files use unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+    [javac] 24 warnings
+
+_default:check-exists-etc:
+
+_default:compile-etc:
+
+_default:check-exists-resources:
+
+_default:compile-resources:
+
+compile:
+     [aopc] [info] Total length of filenames to be compiled is greater than 1000, listing files in --SOURCEPATH: /tmp/src8681706093730495342.tmp
+     [aopc] [debug] Passed in instrumentor: null
+     [aopc] [debug] Defaulting instrumentor to: org.jboss.aop.instrument.ClassicInstrumentor
+     [aopc] [debug] jboss.aop.class.path is NULL
+     [aopc] [debug] jboss.aop.search.classpath: 'null' true
+     [aopc] [debug] jboss.aop.path: /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/output/resources/portal-core-sar/portal-aop.xml:/home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/src/etc/jboss-aop/base-aop.xml
+     [aopc] jboss.aop.path[0]: /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/output/resources/portal-core-sar/portal-aop.xml
+     [aopc] [deploying] file:/home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/output/resources/portal-core-sar/portal-aop.xml
+     [aopc] AspectXMLLoader using managerorg.jboss.aop.AspectManager@79662429
+     [aopc] jboss.aop.path[0]: /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/src/etc/jboss-aop/base-aop.xml
+     [aopc] [deploying] file:/home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/src/etc/jboss-aop/base-aop.xml
+     [aopc] AspectXMLLoader using managerorg.jboss.aop.AspectManager@79662429
+     [aopc] [trying to transform] org.jboss.portal.core.impl.portlet.state.ProducerPortletInvoker
+     [aopc] [debug] There are no caller pointcuts!
+     [aopc] [debug] javassist.CtMethod@d9c7a513[public createClone (Lorg/jboss/portal/portlet/PortletContext;)Lorg/jboss/portal/portlet/PortletContext;] matches pointcut: all(@transaction)
+     [aopc] [debug] javassist.CtMethod@50502340[public destroyClones (Ljava/util/List;)Ljava/util/List;] matches pointcut: all(@transaction)
+     [aopc] [debug] javassist.CtMethod@31274492[public invoke (Lorg/jboss/portal/portlet/invocation/PortletInvocation;)Lorg/jboss/portal/portlet/invocation/response/PortletInvocationResponse;] matches pointcut: all(@transaction)
+     [aopc] [debug] javassist.CtConstructor@571fd245[public ProducerPortletInvoker ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@3f17d8d5[public PortletInvokerException ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@369ca84f[public PortletInvokerException (Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@66edf68b[public PortletInvokerException (Ljava/lang/String;Ljava/lang/Throwable;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@10d55478[public PortletInvokerException (Ljava/lang/Throwable;)V] matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.clientContext:Lorg/jboss/portal/portlet/spi/ClientContext; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.clientContext:Lorg/jboss/portal/portlet/spi/ClientContext; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.ctx:Lorg/jboss/portal/portlet/spi/PortletInvocationContext; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.ctx:Lorg/jboss/portal/portlet/spi/PortletInvocationContext; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.dreq:Ljavax/servlet/http/HttpServletRequest; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.dreq:Ljavax/servlet/http/HttpServletRequest; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.dresp:Ljavax/servlet/http/HttpServletResponse; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.dresp:Ljavax/servlet/http/HttpServletResponse; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.instanceContext:Lorg/jboss/portal/portlet/spi/InstanceContext; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.instanceContext:Lorg/jboss/portal/portlet/spi/InstanceContext; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.mode:Lorg/jboss/portal/Mode; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.mode:Lorg/jboss/portal/Mode; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.navigationalState:Lorg/jboss/portal/portlet/StateString; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.navigationalState:Lorg/jboss/portal/portlet/StateString; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.portalContext:Lorg/jboss/portal/portlet/spi/PortalContext; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.portalContext:Lorg/jboss/portal/portlet/spi/PortalContext; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.publicNavigationalState:Ljava/util/Map; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.publicNavigationalState:Ljava/util/Map; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.requestAttributes:Ljava/util/Map; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.requestAttributes:Ljava/util/Map; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.securityContext:Lorg/jboss/portal/portlet/spi/SecurityContext; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.securityContext:Lorg/jboss/portal/portlet/spi/SecurityContext; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.serverContext:Lorg/jboss/portal/portlet/spi/ServerContext; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.serverContext:Lorg/jboss/portal/portlet/spi/ServerContext; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.target:Lorg/jboss/portal/portlet/PortletContext; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.target:Lorg/jboss/portal/portlet/PortletContext; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.userContext:Lorg/jboss/portal/portlet/spi/UserContext; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.userContext:Lorg/jboss/portal/portlet/spi/UserContext; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.windowContext:Lorg/jboss/portal/portlet/spi/WindowContext; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.windowContext:Lorg/jboss/portal/portlet/spi/WindowContext; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.windowState:Lorg/jboss/portal/WindowState; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.invocation.PortletInvocation.windowState:Lorg/jboss/portal/WindowState; matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@415dd2f9[protected PortletInvocation (Lorg/jboss/portal/portlet/spi/PortletInvocationContext;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@3fdf27be[ PortletContext (Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@53aa4bb4[public InvocationException ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@51504155[public InvocationException (Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@6bf15d27[public InvocationException (Ljava/lang/Throwable;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@331ae2ce[public InvocationException (Ljava/lang/String;Ljava/lang/Throwable;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@2a205c98[public PortletInvocationResponse ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@329f14c3[public ProducerPortletInvoker ()V] matches no pointcuts
+     [aopc] [debug] was org.jboss.portal.core.impl.portlet.state.ProducerPortletInvoker converted: true
+     [aopc] [compiled] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/output/classes/org/jboss/portal/core/impl/portlet/state/ProducerPortletInvoker.class
+     [aopc] [trying to transform] org.jboss.portal.core.impl.model.instance.InstanceContainerImpl
+     [aopc] [debug] There are no caller pointcuts!
+     [aopc] [debug] javassist.CtMethod@3a609ed9[public getStackFactory ()Lorg/jboss/portal/portlet/impl/invocation/PortletInterceptorStackFactory;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@a07968b8[public setStackFactory (Lorg/jboss/portal/portlet/impl/invocation/PortletInterceptorStackFactory;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@b4446c17[public getPortletInvoker ()Lorg/jboss/portal/portlet/PortletInvoker;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@a618de1d[public setPortletInvoker (Lorg/jboss/portal/portlet/PortletInvoker;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@42f0a0c5[public getAuthorizationDomainRegistry ()Lorg/jboss/portal/security/impl/JBossAuthorizationDomainRegistry;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@31b453f5[public setAuthorizationDomainRegistry (Lorg/jboss/portal/security/impl/JBossAuthorizationDomainRegistry;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@9d3fe8b5[public getPortalAuthorizationManagerFactory ()Lorg/jboss/portal/security/spi/auth/PortalAuthorizationManagerFactory;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@f15e31cf[public setPortalAuthorizationManagerFactory (Lorg/jboss/portal/security/spi/auth/PortalAuthorizationManagerFactory;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@df4e1c34[protected startService ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@7c84ec94[protected stopService ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@1a0758d0[public createPermissionContainer (Lorg/jboss/portal/security/PortalPermissionCollection;)Lorg/jboss/portal/security/PortalPermission;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@83617398[public createPermission (Ljava/lang/String;Ljava/lang/String;)Lorg/jboss/portal/security/PortalPermission;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@da390d1[public createPermission (Ljava/lang/String;Ljava/util/Collection;)Lorg/jboss/portal/security/PortalPermission;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@7cba46a8[public getAuthorizationDomain ()Lorg/jboss/portal/security/spi/provider/AuthorizationDomain;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@ed99b503[public getCloneOnCreate ()Z] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@69998681[public setCloneOnCreate (Z)V] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@e1ba9f57[public getPerformSecurityChecks ()Z] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@5661aad[public setPerformSecurityChecks (Z)V] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@52c54165[public getContainerContext ()Lorg/jboss/portal/core/impl/model/instance/JBossInstanceContainerContext;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@c096347f[public setContainerContext (Lorg/jboss/portal/core/impl/model/instance/JBossInstanceContainerContext;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@4cba6400[public getDefinition (Ljava/lang/String;)Lorg/jboss/portal/core/model/instance/InstanceDefinition;] matches pointcut: all(@transaction)
+     [aopc] [debug] javassist.CtMethod@9339201c[public createDefinition (Ljava/lang/String;Ljava/lang/String;)Lorg/jboss/portal/core/model/instance/InstanceDefinition;] matches pointcut: all(@transaction)
+     [aopc] [debug] javassist.CtMethod@d852821[public createDefinition (Lorg/jboss/portal/core/model/instance/metadata/InstanceMetaData;)Lorg/jboss/portal/core/model/instance/InstanceDefinition;] matches pointcut: all(@transaction)
+     [aopc] [debug] javassist.CtMethod@d3eae97c[public createDefinition (Ljava/lang/String;Ljava/lang/String;Z)Lorg/jboss/portal/core/model/instance/InstanceDefinition;] matches pointcut: all(@transaction)
+     [aopc] [debug] javassist.CtMethod@ddb4e9ff[private internalCreateDefinition (Ljava/lang/String;Ljava/lang/String;Z)Lorg/jboss/portal/core/model/instance/InstanceDefinition;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@9dcbd01a[private internalCreateDefinition (Lorg/jboss/portal/core/model/instance/metadata/InstanceMetaData;Z)Lorg/jboss/portal/core/model/instance/InstanceDefinition;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@dfb0bda4[public destroyDefinition (Ljava/lang/String;)V] matches pointcut: all(@transaction)
+     [aopc] [debug] javassist.CtMethod@7975d6cb[public getDefinitions ()Ljava/util/Collection;] matches pointcut: all(@transaction)
+     [aopc] [debug] javassist.CtMethod@31274492[ invoke (Lorg/jboss/portal/portlet/invocation/PortletInvocation;)Lorg/jboss/portal/portlet/invocation/response/PortletInvocationResponse;] matches pointcut: all(@transaction)
+     [aopc] [debug] javassist.CtMethod@31e6d0b1[public getType ()Ljava/lang/String;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@e1d5b3ec[public getConfigurator ()Lorg/jboss/portal/security/spi/provider/DomainConfigurator;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@f32f8830[public getPermissionRepository ()Lorg/jboss/portal/security/spi/provider/PermissionRepository;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@246f6b46[public getPermissionFactory ()Lorg/jboss/portal/security/spi/provider/PermissionFactory;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@d949809b[public getSecurityBindings (Ljava/lang/String;)Ljava/util/Set;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@eeac67c6[public setSecurityBindings (Ljava/lang/String;Ljava/util/Set;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@4efa6ac9[public removeSecurityBindings (Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@d58985f2[public getPermission (Ljava/lang/String;Ljava/lang/String;)Lorg/jboss/portal/security/PortalPermission;] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@fd5a10c[public InstanceContainerImpl ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@1fd484c3[public RoleSecurityBinding (Ljava/lang/String;Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@39582e88[public RoleSecurityBinding (Ljava/util/Set;Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@4c570021[public RoleSecurityBinding (Lorg/jboss/portal/security/RoleSecurityBinding;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@63c99dae[public PortalPermission (Ljava/lang/String;Lorg/jboss/portal/security/PortalPermissionCollection;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@498f3db0[public PortalPermission (Ljava/lang/String;Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@5b1b138a[public InstancePermission (Lorg/jboss/portal/security/PortalPermissionCollection;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@4e9ff7c0[public InstancePermission (Ljava/lang/String;Ljava/util/Collection;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@68428693[public InstancePermission (Ljava/lang/String;I)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@6791525e[public InstancePermission (Ljava/lang/String;Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.instance.AbstractInstance.portletContext:Lorg/jboss/portal/portlet/PortletContext; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.instance.AbstractInstance.portletContext:Lorg/jboss/portal/portlet/PortletContext; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.instance.AbstractInstance.portletRef:Ljava/lang/String; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.instance.AbstractInstance.portletRef:Ljava/lang/String; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.instance.AbstractInstance.state:[B matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.instance.AbstractInstance.state:[B matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@5aa4215[protected AbstractInstance ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@6cd8739a[public AbstractInstanceCustomization ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@768dbb49[public AbstractInstanceDefinition ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@5302f26d[public SecurityConfigurationException ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@6679fcae[public SecurityConfigurationException (Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@52bc3811[public SecurityConfigurationException (Ljava/lang/Throwable;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@43050e86[public InstanceMetaData ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@fca1ca[public DuplicateInstanceException ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@49e1d547[public DuplicateInstanceException (Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@9794e36[public DuplicateInstanceException (Ljava/lang/Throwable;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@7afdc015[public DuplicateInstanceException (Ljava/lang/String;Ljava/lang/Throwable;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@294de1c8[public PortalSecurityException ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@382226a7[public PortalSecurityException (Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@4a17babb[public PortalSecurityException (Ljava/lang/String;Ljava/lang/Throwable;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@5be470fd[public PortalSecurityException (Ljava/lang/Throwable;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@72b6212c[public AbstractJBossService ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@133c0a8a[public AbstractJBossService (Ljava/lang/Class;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@4ad7f3e3[public AbstractJBossService (Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@27cce278[public AbstractJBossService (Lorg/jboss/logging/Logger;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@7c2848b1[public PortletInvokerInterceptor ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@38bc9c25[public PortletInvokerInterceptor (Lorg/jboss/portal/portlet/PortletInvoker;)V] matches no pointcuts
+     [aopc] [debug] org.jboss.logging.Logger.PLUGIN_CLASS_PROP:Ljava/lang/String; matches no pointcuts
+     [aopc] [debug] org.jboss.logging.Logger.PLUGIN_CLASS_PROP:Ljava/lang/String; matches no pointcuts
+     [aopc] [debug] org.jboss.logging.Logger.loggerDelegate:Lorg/jboss/logging/LoggerPlugin; matches no pointcuts
+     [aopc] [debug] org.jboss.logging.Logger.loggerDelegate:Lorg/jboss/logging/LoggerPlugin; matches no pointcuts
+     [aopc] [debug] org.jboss.logging.Logger.pluginClass:Ljava/lang/Class; matches no pointcuts
+     [aopc] [debug] org.jboss.logging.Logger.pluginClass:Ljava/lang/Class; matches no pointcuts
+     [aopc] [debug] org.jboss.logging.Logger.pluginClassName:Ljava/lang/String; matches no pointcuts
+     [aopc] [debug] org.jboss.logging.Logger.pluginClassName:Ljava/lang/String; matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@78b4fa48[protected Logger (Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] org.jboss.portal.security.PortalPermissionCollection.owner:Lorg/jboss/portal/security/PortalPermission; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.security.PortalPermissionCollection.owner:Lorg/jboss/portal/security/PortalPermission; matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@6b249338[public PortalPermissionCollection (Lorg/jboss/portal/security/spi/provider/AuthorizationDomain;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@2e3d787c[public NoSuchInstanceException ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@45b12c9b[public NoSuchInstanceException (Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@72e797db[public NoSuchInstanceException (Ljava/lang/Throwable;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@42a2e5cc[public NoSuchInstanceException (Ljava/lang/String;Ljava/lang/Throwable;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@549cd641[public DestroyCloneFailure (Ljava/lang/String;Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@4b670cd[public DestroyCloneFailure (Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.instance.InstanceContainerImpl.authorizationDomainRegistry:Lorg/jboss/portal/security/impl/JBossAuthorizationDomainRegistry; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.instance.InstanceContainerImpl.cloneOnCreate:Z matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.instance.InstanceContainerImpl.containerContext:Lorg/jboss/portal/core/impl/model/instance/JBossInstanceContainerContext; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.instance.InstanceContainerImpl.performSecurityChecks:Z matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.instance.InstanceContainerImpl.portalAuthorizationManagerFactory:Lorg/jboss/portal/security/spi/auth/PortalAuthorizationManagerFactory; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.instance.InstanceContainerImpl.portletInvoker:Lorg/jboss/portal/portlet/PortletInvoker; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.instance.InstanceContainerImpl.stackFactory:Lorg/jboss/portal/portlet/impl/invocation/PortletInterceptorStackFactory; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.instance.InstanceContainerImpl.authorizationDomainRegistry:Lorg/jboss/portal/security/impl/JBossAuthorizationDomainRegistry; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.instance.InstanceContainerImpl.cloneOnCreate:Z matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.instance.InstanceContainerImpl.containerContext:Lorg/jboss/portal/core/impl/model/instance/JBossInstanceContainerContext; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.instance.InstanceContainerImpl.performSecurityChecks:Z matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.instance.InstanceContainerImpl.portalAuthorizationManagerFactory:Lorg/jboss/portal/security/spi/auth/PortalAuthorizationManagerFactory; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.instance.InstanceContainerImpl.portletInvoker:Lorg/jboss/portal/portlet/PortletInvoker; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.instance.InstanceContainerImpl.stackFactory:Lorg/jboss/portal/portlet/impl/invocation/PortletInterceptorStackFactory; matches no pointcuts
+     [aopc] [debug] was org.jboss.portal.core.impl.model.instance.InstanceContainerImpl converted: true
+     [aopc] [compiled] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/output/classes/org/jboss/portal/core/impl/model/instance/InstanceContainerImpl.class
+     [aopc] [trying to transform] org.jboss.portal.core.impl.model.portal.PersistentPortalObjectContainer
+     [aopc] [debug] There are no caller pointcuts!
+     [aopc] [debug] javassist.CtMethod@8e3a7c44[public getRootName ()Ljava/lang/String;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@5c36a4c6[public setRootName (Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@353b9f63[public flushNaturalIdCache ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@64246596[public getNaturalIdCacheSize ()I] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@70981b9[public getCacheNaturalId ()Z] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@b5bcc7f3[public setCacheNaturalId (Z)V] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@42f0a0c5[public getAuthorizationDomainRegistry ()Lorg/jboss/portal/security/impl/JBossAuthorizationDomainRegistry;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@31b453f5[public setAuthorizationDomainRegistry (Lorg/jboss/portal/security/impl/JBossAuthorizationDomainRegistry;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@9d3fe8b5[public getPortalAuthorizationManagerFactory ()Lorg/jboss/portal/security/spi/auth/PortalAuthorizationManagerFactory;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@f15e31cf[public setPortalAuthorizationManagerFactory (Lorg/jboss/portal/security/spi/auth/PortalAuthorizationManagerFactory;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@cbe8fc1[public setSessionFactoryJNDIName (Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@52c54165[public getContainerContext ()Lorg/jboss/portal/core/impl/model/portal/AbstractPortalObjectContainer$ContainerContext;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@df4e1c34[protected startService ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@7c84ec94[protected stopService ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@73e8c235[protected createRoot (Ljava/lang/String;)Lorg/jboss/portal/core/impl/model/portal/ContextImpl;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@b856a826[protected getObjectNode (Lorg/jboss/portal/core/model/portal/PortalObjectId;)Lorg/jboss/portal/core/impl/model/portal/ObjectNode;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@1b880530[private getObjectNodeNoCache (Lorg/hibernate/Session;Lorg/jboss/portal/core/model/portal/PortalObjectId;)Lorg/jboss/portal/core/impl/model/portal/ObjectNode;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@ece9231d[private getObjectNode (Lorg/hibernate/Session;Lorg/jboss/portal/core/model/portal/PortalObjectId;)Lorg/jboss/portal/core/impl/model/portal/ObjectNode;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@23e483f1[static access$000 ()Lorg/jboss/logging/Logger;] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@5f8f22f3[public PersistentPortalObjectContainer ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@575ec870[public ContextImpl ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@fb95de0[public ContextImpl (Z)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@52c22530[public PortalObjectPath ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@48179cc2[public PortalObjectPath (Lorg/jboss/portal/core/model/portal/PortalObjectPath;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@634a988[public PortalObjectPath ([Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@6b6622e6[private PortalObjectPath ([Ljava/lang/String;II)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@7e7d611f[public PortalObjectPath (Ljava/lang/String;Lorg/jboss/portal/core/model/portal/PortalObjectPath$Format;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@59737b19[ PersistentPortalObjectContainer$1 (Lorg/jboss/portal/core/impl/model/portal/PersistentPortalObjectContainer;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@2c96d430[public AbstractPortalObjectContainer$ContainerContext (Lorg/jboss/portal/core/impl/model/portal/AbstractPortalObjectContainer;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@6244b22e[public ObjectNode ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@c0e1c69[public ObjectNode (Lorg/jboss/portal/core/impl/model/portal/AbstractPortalObjectContainer$ContainerContext;Lorg/jboss/portal/core/model/portal/PortalObjectId;Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] org.jboss.portal.jems.hibernate.ObjectContextualizer.context:Ljava/lang/Object; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.jems.hibernate.ObjectContextualizer.context:Ljava/lang/Object; matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@5d14798a[public ObjectContextualizer (Ljava/lang/Object;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@6b3782c3[protected AbstractPortalObjectContainer ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@96a0733[public PortalObjectId (Ljava/lang/String;Lorg/jboss/portal/core/model/portal/PortalObjectPath;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@ffeaa19[public PortalObjectImpl ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@18515783[public PortalObjectImpl (Z)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@44865ee[public DuplicatePortalObjectException ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@2d1bee74[public DuplicatePortalObjectException (Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@4c418cf[public DuplicatePortalObjectException (Ljava/lang/Throwable;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@6638c07a[public DuplicatePortalObjectException (Ljava/lang/String;Ljava/lang/Throwable;)V] matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.portal.PersistentPortalObjectContainer.authorizationDomainRegistry:Lorg/jboss/portal/security/impl/JBossAuthorizationDomainRegistry; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.portal.PersistentPortalObjectContainer.cache:Ljava/util/concurrent/ConcurrentHashMap; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.portal.PersistentPortalObjectContainer.cacheNaturalId:Z matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.portal.PersistentPortalObjectContainer.contextualizer:Lorg/jboss/portal/jems/hibernate/ObjectContextualizer; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.portal.PersistentPortalObjectContainer.ctx:Lorg/jboss/portal/core/impl/model/portal/AbstractPortalObjectContainer$ContainerContext; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.portal.PersistentPortalObjectContainer.log:Lorg/jboss/logging/Logger; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.portal.PersistentPortalObjectContainer.portalAuthorizationManagerFactory:Lorg/jboss/portal/security/spi/auth/PortalAuthorizationManagerFactory; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.portal.PersistentPortalObjectContainer.rootName:Ljava/lang/String; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.portal.PersistentPortalObjectContainer.sessionFactory:Lorg/hibernate/SessionFactory; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.portal.PersistentPortalObjectContainer.sessionFactoryJNDIName:Ljava/lang/String; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.portal.PersistentPortalObjectContainer.authorizationDomainRegistry:Lorg/jboss/portal/security/impl/JBossAuthorizationDomainRegistry; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.portal.PersistentPortalObjectContainer.cache:Ljava/util/concurrent/ConcurrentHashMap; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.portal.PersistentPortalObjectContainer.cacheNaturalId:Z matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.portal.PersistentPortalObjectContainer.contextualizer:Lorg/jboss/portal/jems/hibernate/ObjectContextualizer; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.portal.PersistentPortalObjectContainer.ctx:Lorg/jboss/portal/core/impl/model/portal/AbstractPortalObjectContainer$ContainerContext; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.portal.PersistentPortalObjectContainer.log:Lorg/jboss/logging/Logger; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.portal.PersistentPortalObjectContainer.portalAuthorizationManagerFactory:Lorg/jboss/portal/security/spi/auth/PortalAuthorizationManagerFactory; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.portal.PersistentPortalObjectContainer.rootName:Ljava/lang/String; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.portal.PersistentPortalObjectContainer.sessionFactory:Lorg/hibernate/SessionFactory; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.impl.model.portal.PersistentPortalObjectContainer.sessionFactoryJNDIName:Ljava/lang/String; matches no pointcuts
+     [aopc] [debug] was org.jboss.portal.core.impl.model.portal.PersistentPortalObjectContainer converted: false
+     [aopc] [no comp needed] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/output/classes/org/jboss/portal/core/impl/model/portal/PersistentPortalObjectContainer.class
+     [aopc] [trying to transform] org.jboss.portal.core.aspects.portlet.TransactionInterceptor
+     [aopc] [debug] There are no caller pointcuts!
+     [aopc] [debug] javassist.CtMethod@31274492[public invoke (Lorg/jboss/portal/portlet/invocation/PortletInvocation;)Lorg/jboss/portal/portlet/invocation/response/PortletInvocationResponse;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@109751b7[protected invokeNotSupported (Lorg/jboss/portal/portlet/invocation/PortletInvocation;)Lorg/jboss/portal/portlet/invocation/response/PortletInvocationResponse;] matches pointcut: all(@transaction)
+     [aopc] [debug] javassist.CtMethod@77e79b96[protected invokeNever (Lorg/jboss/portal/portlet/invocation/PortletInvocation;)Lorg/jboss/portal/portlet/invocation/response/PortletInvocationResponse;] matches pointcut: all(@transaction)
+     [aopc] [debug] javassist.CtMethod@9acc84e9[protected invokeMandatory (Lorg/jboss/portal/portlet/invocation/PortletInvocation;)Lorg/jboss/portal/portlet/invocation/response/PortletInvocationResponse;] matches pointcut: all(@transaction)
+     [aopc] [debug] javassist.CtMethod@a968ee6e[protected invokeSupports (Lorg/jboss/portal/portlet/invocation/PortletInvocation;)Lorg/jboss/portal/portlet/invocation/response/PortletInvocationResponse;] matches pointcut: all(@transaction)
+     [aopc] [debug] javassist.CtMethod@b313cdb3[protected invokeRequired (Lorg/jboss/portal/portlet/invocation/PortletInvocation;)Lorg/jboss/portal/portlet/invocation/response/PortletInvocationResponse;] matches pointcut: all(@transaction)
+     [aopc] [debug] javassist.CtMethod@e2f6fd0[protected invokeRequiresNew (Lorg/jboss/portal/portlet/invocation/PortletInvocation;)Lorg/jboss/portal/portlet/invocation/response/PortletInvocationResponse;] matches pointcut: all(@transaction)
+     [aopc] [debug] javassist.CtConstructor@6faa7dbc[public TransactionInterceptor ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@2224faea[public ErrorResponse (Ljava/lang/Throwable;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@29d52a29[public ErrorResponse (Ljava/lang/String;Ljava/lang/Throwable;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@69c2ff33[public ErrorResponse (Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@100a384[private Transactions$Type (Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@50ef2f9f[ Transactions$Type (Ljava/lang/String;Lorg/jboss/portal/common/transaction/Transactions$1;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@71f993c[public CorePortletInterceptor ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@2b8535cb[public Transactions ()V] matches no pointcuts
+     [aopc] [debug] was org.jboss.portal.core.aspects.portlet.TransactionInterceptor converted: true
+     [aopc] [compiled] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/output/classes/org/jboss/portal/core/aspects/portlet/TransactionInterceptor.class
+     [aopc] [trying to transform] org.jboss.portal.core.aspects.server.TransactionInterceptor
+     [aopc] [debug] There are no caller pointcuts!
+     [aopc] [debug] javassist.CtMethod@4b7fb3a9[protected invoke (Lorg/jboss/portal/server/ServerInvocation;)V] matches pointcut: all(@transaction)
+     [aopc] [debug] javassist.CtConstructor@54031f94[public TransactionInterceptor ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@22241a0d[public ServerInvocation (Lorg/jboss/portal/server/ServerInvocationContext;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@37fe883b[public ServerInterceptor ()V] matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.aspects.server.TransactionInterceptor.tm:Ljavax/transaction/TransactionManager; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.aspects.server.TransactionInterceptor.tm:Ljavax/transaction/TransactionManager; matches no pointcuts
+     [aopc] [debug] was org.jboss.portal.core.aspects.server.TransactionInterceptor converted: true
+     [aopc] [compiled] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/output/classes/org/jboss/portal/core/aspects/server/TransactionInterceptor.class
+     [aopc] [trying to transform] org.jboss.portal.core.deployment.jboss.PortletAppDeployment
+     [aopc] [debug] There are no caller pointcuts!
+     [aopc] [debug] javassist.CtMethod@8eeb38e3[public start ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@41fafa50[protected injectServices ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@95e18cb1[private buildInstances ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@719c8452[private createInstances (Ljava/util/List;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@d469acb2[private handleInstance (Lorg/jboss/portal/core/deployment/jboss/PortletAppDeployment$InstanceMetaDataContext;)V] matches pointcut: all(@transaction)
+     [aopc] [debug] javassist.CtMethod@b3a8cdd9[private configureInstance (Lorg/jboss/portal/core/model/instance/Instance;Lorg/jboss/portal/core/model/instance/metadata/InstanceMetaData;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@527cc5e3[private createInstance (Lorg/jboss/portal/core/model/instance/metadata/InstanceMetaData;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@e5e89ffc[private resolvePortletRef (Ljava/lang/String;)Ljava/lang/String;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@46cce9b8[static access$000 (Lorg/jboss/portal/core/deployment/jboss/PortletAppDeployment;)Lorg/jboss/portal/core/deployment/jboss/PortletAppDeploymentFactory;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@b0fc71d7[static access$100 (Lorg/jboss/portal/core/deployment/jboss/PortletAppDeployment;)Lorg/jboss/logging/Logger;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@1b2bf9f6[static access$200 (Lorg/jboss/portal/core/deployment/jboss/PortletAppDeployment;)Lorg/jboss/logging/Logger;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@855b8215[static access$300 (Lorg/jboss/portal/core/deployment/jboss/PortletAppDeployment;)Lorg/jboss/logging/Logger;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@ef8b0a34[static access$400 (Lorg/jboss/portal/core/deployment/jboss/PortletAppDeployment;)Lorg/jboss/portal/server/deployment/PortalWebApp;] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@1ebd2621[public PortletAppDeployment (Ljava/net/URL;Lorg/jboss/portal/server/deployment/PortalWebApp;Lorg/jboss/portal/portlet/container/managed/ManagedObjectRegistryEventListener;Ljavax/management/MBeanServer;Lorg/jboss/portal/core/deployment/jboss/PortletAppDeploymentFactory;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@3111fe80[public PortletPreferenceMetaData ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@145b9eab[public PortletPreferenceMetaData (Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.deployment.jboss.PortletAppDeployment.configurations:Ljava/util/Map; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.deployment.jboss.PortletAppDeployment.configurations:Ljava/util/Map; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.deployment.jboss.PortletAppDeployment.factory:Lorg/jboss/portal/portlet/deployment/jboss/PortletAppDeploymentFactory; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.deployment.jboss.PortletAppDeployment.factory:Lorg/jboss/portal/portlet/deployment/jboss/PortletAppDeploymentFactory; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.deployment.jboss.PortletAppDeployment.jbossAppMD:Lorg/jboss/portal/portlet/deployment/jboss/metadata/JBossApplicationMetaData; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.deployment.jboss.PortletAppDeployment.jbossAppMD:Lorg/jboss/portal/portlet/deployment/jboss/metadata/JBossApplicationMetaData; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.deployment.jboss.PortletAppDeployment.portletAppMD:Lorg/jboss/portal/portlet/impl/metadata/PortletApplication10MetaData; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.deployment.jboss.PortletAppDeployment.portletAppMD:Lorg/jboss/portal/portlet/impl/metadata/PortletApplication10MetaData; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.deployment.jboss.PortletAppDeployment.portletApplicationContext:Lorg/jboss/portal/portlet/deployment/jboss/PortletApplicationContextImpl; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.deployment.jboss.PortletAppDeployment.portletApplicationContext:Lorg/jboss/portal/portlet/deployment/jboss/PortletApplicationContextImpl; matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@5d28b564[public PortletAppDeployment (Ljava/net/URL;Lorg/jboss/portal/server/deployment/PortalWebApp;Lorg/jboss/portal/portlet/container/managed/ManagedObjectRegistryEventListener;Ljavax/management/MBeanServer;Lorg/jboss/portal/portlet/deployment/jboss/PortletAppDeploymentFactory;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@1b9ce804[private XMLTools ()V] matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.PortletAppDeploymentFactory.createInstances:Z matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.PortletAppDeploymentFactory.createInstances:Z matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.PortletAppDeploymentFactory.instanceContainer:Lorg/jboss/portal/core/model/instance/InstanceContainer; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.PortletAppDeploymentFactory.instanceContainer:Lorg/jboss/portal/core/model/instance/InstanceContainer; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.PortletAppDeploymentFactory.portalObjectEntityResolver:Lorg/xml/sax/EntityResolver; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.PortletAppDeploymentFactory.portalObjectEntityResolver:Lorg/xml/sax/EntityResolver; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.PortletAppDeploymentFactory.portletInstancesEntityResolver:Lorg/xml/sax/EntityResolver; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.PortletAppDeploymentFactory.portletInstancesEntityResolver:Lorg/xml/sax/EntityResolver; matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@3702c2f1[public PortletAppDeploymentFactory ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@164c786e[public JBossApplicationMetaData ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@76768931[public JBossApplicationMetaData (Lorg/jboss/portal/portlet/deployment/jboss/metadata/JBossApplicationMetaData;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@60292cb9[private MBeanServerLocator ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@2f375701[public SecurityConstraintsMetaData ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@5a311ade[public URLNavigator ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@4ddb1314[public NullEntityResolver ()V] matches no pointcuts
+     [aopc] [debug] org.jboss.mx.util.MBeanProxyExt.remote:Ljavax/management/MBeanServerConnection; matches no pointcuts
+     [aopc] [debug] org.jboss.mx.util.MBeanProxyExt.remote:Ljavax/management/MBeanServerConnection; matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@2a852e54[public MBeanProxyExt ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@da4a29b[ MBeanProxyExt (Ljavax/management/ObjectName;Ljavax/management/MBeanServer;Z)V] matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.deployment.jboss.PortletAppDeploymentFactory.config:Lorg/jboss/portal/server/config/ServerConfig; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.deployment.jboss.PortletAppDeploymentFactory.config:Lorg/jboss/portal/server/config/ServerConfig; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.deployment.jboss.PortletAppDeploymentFactory.jbossPortletEntityResolver:Lorg/xml/sax/EntityResolver; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.deployment.jboss.PortletAppDeploymentFactory.jbossPortletEntityResolver:Lorg/xml/sax/EntityResolver; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.deployment.jboss.PortletAppDeploymentFactory.portletSecurityService:Lorg/jboss/portal/portlet/security/PortletSecurityService; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.deployment.jboss.PortletAppDeploymentFactory.portletSecurityService:Lorg/jboss/portal/portlet/security/PortletSecurityService; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.deployment.jboss.PortletAppDeploymentFactory.standardJBossApplicationMetaData:Lorg/jboss/portal/portlet/deployment/jboss/metadata/JBossApplicationMetaData; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.deployment.jboss.PortletAppDeploymentFactory.standardJBossApplicationMetaData:Lorg/jboss/portal/portlet/deployment/jboss/metadata/JBossApplicationMetaData; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.deployment.jboss.PortletAppDeploymentFactory.standardJBossApplicationMetaDataLocation:Ljava/lang/String; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.deployment.jboss.PortletAppDeploymentFactory.standardJBossApplicationMetaDataLocation:Ljava/lang/String; matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@21b5c5b3[public PortletAppDeploymentFactory ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@24c67c0f[public ServiceMetaData ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@62facfa5[public IOTools ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@40568c67[public MBeanProxy ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@721bdf30[public PortletPreferencesMetaData ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@3da02d7[public PortletPreferencesMetaData (Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.deployment.jboss.metadata.JBossApplicationMetaData.id:Ljava/lang/String; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.deployment.jboss.metadata.JBossApplicationMetaData.id:Ljava/lang/String; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.deployment.jboss.metadata.JBossApplicationMetaData.portlets:Ljava/util/Map; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.deployment.jboss.metadata.JBossApplicationMetaData.portlets:Ljava/util/Map; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.deployment.jboss.metadata.JBossApplicationMetaData.remotable:Ljava/lang/Boolean; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.portlet.deployment.jboss.metadata.JBossApplicationMetaData.remotable:Ljava/lang/Boolean; matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@13adc735[public JBossApplicationMetaData ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@75f172aa[ PortletAppDeployment$1 (Lorg/jboss/portal/core/deployment/jboss/PortletAppDeployment;Ljava/lang/String;Ljava/util/ArrayList;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@3e9f3364[public PortletAppDeployment$InstanceMetaDataContext (Lorg/jboss/portal/core/deployment/jboss/PortletAppDeployment;Lorg/jboss/portal/core/model/instance/metadata/InstanceMetaData;I)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@45e70a5a[public NoSuchPortletException (Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@4358be90[public NoSuchPortletException (Ljava/lang/String;Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@7747027a[public NoSuchPortletException (Ljava/lang/Throwable;Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@56f3d4c3[public NoSuchPortletException (Ljava/lang/String;Ljava/lang/Throwable;Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@30317bdd[protected PortalWebApp ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@bb02e3[public InvalidPortletIdException (Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@75ba8574[public InvalidPortletIdException (Ljava/lang/String;Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@288fbf0e[public InvalidPortletIdException (Ljava/lang/Throwable;Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@754844ef[public InvalidPortletIdException (Ljava/lang/String;Ljava/lang/Throwable;Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@5ba5e310[public DeploymentException (Ljava/lang/String;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@67de5e71[public DeploymentException (Ljava/lang/String;Ljava/lang/Throwable;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@380a81fd[public DeploymentException (Ljava/lang/Throwable;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@39dc25c9[public DeploymentException ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@2434cccc[private PropertyChange (Ljava/lang/String;Ljava/util/List;)V] matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.PortletAppDeployment.factory:Lorg/jboss/portal/core/deployment/jboss/PortletAppDeploymentFactory; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.PortletAppDeployment.factory:Lorg/jboss/portal/core/deployment/jboss/PortletAppDeploymentFactory; matches no pointcuts
+     [aopc] [debug] was org.jboss.portal.core.deployment.jboss.PortletAppDeployment converted: true
+     [aopc] [compiled] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/output/classes/org/jboss/portal/core/deployment/jboss/PortletAppDeployment.class
+     [aopc] [trying to transform] org.jboss.portal.core.deployment.jboss.ObjectDeployment
+     [aopc] [debug] There are no caller pointcuts!
+     [aopc] [debug] javassist.CtMethod@8eeb38e3[public start ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@e781a1d8[protected doStart ()V] matches pointcut: all(@transaction)
+     [aopc] [debug] javassist.CtMethod@cad41483[public stop ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@b0508cd5[public getFactory ()Lorg/jboss/portal/core/deployment/jboss/ObjectDeploymentFactory;] matches no pointcuts
+     [aopc] [debug] javassist.CtMethod@2b271dcf[static access$100 (Lorg/jboss/portal/core/deployment/jboss/ObjectDeployment;)Lorg/jboss/portal/server/deployment/PortalWebApp;] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@3663698[public ObjectDeployment (Ljava/net/URL;Ljavax/management/MBeanServer;Ljavax/transaction/TransactionManager;Lorg/jboss/portal/server/deployment/PortalWebApp;Lorg/jboss/portal/core/deployment/jboss/ObjectDeploymentFactory;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@7f1a4c5e[public Deployment (Ljava/net/URL;Ljavax/management/MBeanServer;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@178bf083[public Deployment (Ljava/net/URL;Lorg/jboss/portal/server/deployment/PortalWebApp;Ljavax/management/MBeanServer;)V] matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.ObjectDeploymentFactory.contentProviderRegistry:Lorg/jboss/portal/core/model/content/spi/ContentProviderRegistry; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.ObjectDeploymentFactory.contentProviderRegistry:Lorg/jboss/portal/core/model/content/spi/ContentProviderRegistry; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.ObjectDeploymentFactory.coordinationConfigurator:Lorg/jboss/portal/core/controller/coordination/CoordinationConfigurator; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.ObjectDeploymentFactory.coordinationConfigurator:Lorg/jboss/portal/core/controller/coordination/CoordinationConfigurator; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.ObjectDeploymentFactory.portalObjectContainer:Lorg/jboss/portal/core/model/portal/PortalObjectContainer; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.ObjectDeploymentFactory.portalObjectContainer:Lorg/jboss/portal/core/model/portal/PortalObjectContainer; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.ObjectDeploymentFactory.portalObjectEntityResolver:Lorg/xml/sax/EntityResolver; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.ObjectDeploymentFactory.portalObjectEntityResolver:Lorg/xml/sax/EntityResolver; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.ObjectDeploymentFactory.setupURL:Ljava/net/URL; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.ObjectDeploymentFactory.setupURL:Ljava/net/URL; matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@c5d53c3[public ObjectDeploymentFactory ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@43262d8c[public PortalObjectPath$Format ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@7f7864c4[ ObjectDeployment$1 (Lorg/jboss/portal/core/deployment/jboss/ObjectDeployment;)V] matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.ObjectDeployment$Unit.ifExists:I matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.ObjectDeployment$Unit.ifExists:I matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.ObjectDeployment$Unit.metaData:Ljava/lang/Object; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.ObjectDeployment$Unit.metaData:Ljava/lang/Object; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.ObjectDeployment$Unit.parentRef:Lorg/jboss/portal/core/model/portal/PortalObjectId; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.ObjectDeployment$Unit.parentRef:Lorg/jboss/portal/core/model/portal/PortalObjectId; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.ObjectDeployment$Unit.ref:Lorg/jboss/portal/core/model/portal/PortalObjectId; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.ObjectDeployment$Unit.ref:Lorg/jboss/portal/core/model/portal/PortalObjectId; matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@6898bfe6[private ObjectDeployment$Unit ()V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@45ecab0[ ObjectDeployment$Unit (Lorg/jboss/portal/core/deployment/jboss/ObjectDeployment$1;)V] matches no pointcuts
+     [aopc] [debug] javassist.CtConstructor@6b4ceb0d[public PortalObjectMetaData ()V] matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.ObjectDeployment.factory:Lorg/jboss/portal/core/deployment/jboss/ObjectDeploymentFactory; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.ObjectDeployment.isTrace:Z matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.ObjectDeployment.tm:Ljavax/transaction/TransactionManager; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.ObjectDeployment.units:Ljava/util/ArrayList; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.ObjectDeployment.factory:Lorg/jboss/portal/core/deployment/jboss/ObjectDeploymentFactory; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.ObjectDeployment.isTrace:Z matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.ObjectDeployment.tm:Ljavax/transaction/TransactionManager; matches no pointcuts
+     [aopc] [debug] org.jboss.portal.core.deployment.jboss.ObjectDeployment.units:Ljava/util/ArrayList; matches no pointcuts
+     [aopc] [debug] was org.jboss.portal.core.deployment.jboss.ObjectDeployment converted: true
+     [aopc] [compiled] /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/output/classes/org/jboss/portal/core/deployment/jboss/ObjectDeployment.class
+     [aopc] Build Successful: 796 ms
+
+artifacts:
+      [jar] Building jar: /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/output/lib/portal-core-lib.jar
+      [jar] Building jar: /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/output/lib/jboss-portlet-api-lib.jar
+     [copy] Copying 2 files to /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/output/resources/jboss-portal/lib
+
+output:
+     [copy] Copying 2 files to /home/jssteux/doc-externes/toutatice-jbp/jboss-portal-2.7.2-src/core/output/resources/jboss-portal.sar
+
+_default:most:
+
+most:
+
+main:
+
+BUILD SUCCESSFUL

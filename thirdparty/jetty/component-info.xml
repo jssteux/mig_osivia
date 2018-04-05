@@ -1,0 +1,21 @@
+<project name="jetty-component-info">
+
+   <!-- The component id is the repository path -->
+   <!-- The license type for which there must be an *.txt in repository.jboss.com/licenses -->
+   <!-- The version of the component -->
+   <!-- The component home/info page -->
+   <!-- A short description of the component -->
+   <component id="jetty"
+              licenseType="apache"
+              version="6.0"
+              projectHome="http://jetty.mortbay.org/"
+              description="Jetty">
+
+      <!-- Artifacts produced by this component -->
+      <artifact id="jetty.jar"/>
+      <!-- The artifacts exported by this component -->
+      <export>
+         <include input="jetty.jar"/>
+      </export>
+   </component>
+</project>

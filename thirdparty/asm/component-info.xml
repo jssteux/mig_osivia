@@ -1,0 +1,17 @@
+<project name="asm-component-info">
+
+   <component id="asm"
+              licenseType="bsd"
+              version="1.5.3"
+              projectHome="http://asm.objectweb.org/"
+              description="A very small and fast Java bytecode manipulation framework">
+      <artifact id="asm.jar"/>
+      <artifact id="asm-attrs.jar"/>
+      <export>
+         <include input="asm.jar"/>
+         <include input="asm-attrs.jar"/>
+      </export>
+   </component>
+
+
+</project>

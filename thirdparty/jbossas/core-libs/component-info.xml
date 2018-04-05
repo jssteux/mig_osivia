@@ -1,0 +1,71 @@
+<project name="jbossas-libs-component-info">
+
+   <!-- The jbossbuild repository component info descriptor for the base
+   jbossas jars.
+   $Id: component-info.xml,v 1.4 2006/06/28 19:03:34 rgenova Exp $
+   -->
+   <component id="jbossas/core-libs"
+              version="4.0.4.GA"
+              licenseType="lgpl"
+              projectHome="http://www.jboss.org"
+              description="The core JBossAS server libs"
+   >
+      <artifact id="jboss-common.jar"/>
+      <artifact id="jboss-jmx.jar"/>
+      <artifact id="jboss-xml-binding.jar" />
+      <artifact id="jboss-system.jar" />
+      <artifact id="jboss-aspect-library.jar"/>     
+      <artifact id="jboss-common-client.jar"/>      
+      <artifact id="namespace.jar"/>      
+      <artifact id="jmx-invoker-adaptor-client.jar"/>
+      <artifact id="jboss-j2ee.jar"/>
+      <artifact id="jboss-jaxrpc.jar"/>
+      <artifact id="jboss-saaj.jar"/>
+      <artifact id="jnp-client.jar"/>
+      <artifact id="jnpserver.jar"/>
+      <artifact id="jbossha.jar"/>
+      <artifact id="jboss.jar"/>
+      <artifact id="jboss-common-jdbc-wrapper.jar"/>
+      <artifact id="jboss-hibernate.jar"/>
+      <artifact id="jboss-jca.jar"/>
+      <artifact id="jbosssx.jar"/>
+      <artifact id="jboss-local-jdbc.jar"/>
+      <artifact id="jboss-transaction.jar"/>
+      
+
+
+      <import componentref="dom4j">
+         <compatible version="1.6"/>
+         <compatible version="1.6.1jboss"/>
+      </import>
+      <import componentref="oswego-concurrent">
+        <compatible version="1.3.4"/>
+      </import>
+
+      <export>
+         <include input="jboss-common.jar"/>
+         <include input="jboss-jmx.jar"/>
+         <include input="jboss-xml-binding.jar"/>
+         <include input="jboss-system.jar"/>
+	   <include input="jboss-aspect-library.jar"/>         
+         <include input="jboss-common-client.jar"/>
+         <include input="namespace.jar"/>         
+         <include input="jmx-invoker-adaptor-client.jar"/>
+         <include input="jboss-j2ee.jar"/>
+         <include input="jboss-jaxrpc.jar"/>	   
+         <include input="jnp-client.jar"/>
+         <include input="jnpserver.jar"/>
+	   <include input="jbossha.jar"/>
+	   <include input="jboss.jar"/>
+	   <include input="jboss-common-jdbc-wrapper.jar"/>
+	   <include input="jboss-hibernate.jar"/>
+	   <include input="jboss-jca.jar"/>
+	   <include input="jboss-saaj.jar"/>
+	   <include input="jbosssx.jar"/>
+	   <include input="jboss-local-jdbc.jar"/>
+         <include input="jboss-transaction.jar"/>
+
+      </export>
+   </component>
+</project>
+   

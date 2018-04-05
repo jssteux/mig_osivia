@@ -1,0 +1,14 @@
+<project name="apache-lucene-component-info">
+   <component id="apache-lucene"
+              licenseType="apache-2.0"
+              version="2.2.0"
+              projectHome="http://lucene.apache.org/java/docs/index.html/"
+              description="high-performance, full-featured text search engine library">
+      <artifact id="lucene.jar"/>
+      
+      <export>
+         <include input="lucene.jar"/>         
+      </export>
+   </component>
+
+</project>

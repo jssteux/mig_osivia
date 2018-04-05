@@ -1,0 +1,16 @@
+<project name="tagsoup-component-info">
+
+   <component id="tagsoup"
+              licenseType="apache-2.0"
+              version="1.2"
+              projectHome="http://home.ccil.org/~cowan/XML/tagsoup/"
+         description="TagSoup">
+
+      <artifact id="tagsoup.jar"/>
+
+      <export>
+         <include input="tagsoup.jar"/>
+      </export>
+   </component>
+
+</project>

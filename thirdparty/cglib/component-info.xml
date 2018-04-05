@@ -1,0 +1,22 @@
+<project name="cglib-component-info">
+   <component id="cglib"
+              licenseType="apache-2.0"
+              version="2.1.3dep-brew"
+              projectHome="http://cglib.sourceforge.net/"
+              description="Code Generation Library with no dependencies"
+              scm=":ext:cvs.devel.redhat.com:/cvs/dist/cglib"
+              tag="cglib-2_1_3-2jpp_ep1_6_el4">
+      <!-- Built using JDK 1.4 -->
+      <!-- These are equivalent to cglib-nodep.jar -->
+      <artifact id="cglib.jar"/>
+
+      <import componentref="asm">
+        <compatible version="1.5.3"/>
+        <compatible version="1.5.3-brew"/>
+      </import>
+
+      <export>
+         <include input="cglib.jar"/>
+      </export>
+   </component>
+</project>

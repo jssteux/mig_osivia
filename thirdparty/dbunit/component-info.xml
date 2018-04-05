@@ -1,0 +1,14 @@
+<project name="dbunit-component-info">
+   <component id="dbunit"
+              licenseType="lgpl"
+              version="2.1"
+              projectHome="http://dbunit.sourceforge.net/"
+              description="JUnit extension (also usable with Ant) targeted for database-driven projects that, among other things, puts your database into a known state between test runs.">
+      <artifact id="dbunit.jar"/>
+      
+      <export>
+         <include input="dbunit.jar"/>         
+      </export>
+   </component>
+
+</project>

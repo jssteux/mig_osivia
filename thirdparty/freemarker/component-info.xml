@@ -1,0 +1,15 @@
+<project name="freemarker-component-info">
+
+   <component id="freemarker"
+              licenseType="bsd"
+              version="2.3.9"
+              projectHome="http://freemarker.sourceforge.net"
+              description="Freemarker">
+
+      <artifact id="freemarker.jar"/>
+      <export>
+         <include input="freemarker.jar"/>
+      </export>
+   </component>
+
+</project>

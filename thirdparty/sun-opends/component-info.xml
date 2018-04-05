@@ -1,0 +1,17 @@
+<project name="sun-opends-component-info">
+
+   <!-- ============================================================ -->
+   <!-- Sun OpenDS Open Source Implementation -->
+   <!-- ============================================================ -->
+
+   <component id="sun-opends"
+              licenseType="cddl"
+              version="snapshot"
+              projectHome="http://opends.dev.java.net"
+              description="OSS Directory Server">
+      <artifact id="OpenDS.jar"/>
+      <export>
+         <include input="OpenDS.jar"/>
+      </export>
+   </component>
+</project>

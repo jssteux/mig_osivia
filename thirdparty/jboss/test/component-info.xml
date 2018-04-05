@@ -1,0 +1,19 @@
+<project name="jboss-test-component-info">
+
+   <!-- ============================================================ -->
+   <!-- jboss/test                                                      -->
+   <!-- ============================================================ -->
+
+   <component id="jboss/test"
+              version="1.0.0.CR1"
+              licenseType="lgpl"
+              description="This is the JBoss test framework based on the 
+              junit test framework that lets you write test cases 
+              that run against the JBoss Application Server."
+   >
+      <artifact id="jboss-test.jar"/>
+      <export>
+         <include input="jboss-test.jar"/>
+      </export>
+   </component>
+</project>
