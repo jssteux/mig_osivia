@@ -92,16 +92,7 @@
       </resources>
       <plugins>
 
-         <plugin>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <configuration>
-               <encoding>iso-8859-1</encoding>
-            	<source>1.7</source>
-            	<target>1.7</target>
-            	<showWarnings>false</showWarnings>
-            	<showDeprecation>false</showDeprecation>
-        	</configuration>
-    	</plugin>
+
 
          <plugin>
             <groupId>org.apache.maven.plugins</groupId>
